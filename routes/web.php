@@ -20,8 +20,21 @@ Route::get('/', function () {
 
 Route::get('/about', [FrontController::class, 'about']);
 
+Route::post('/simpan_pasien', [FrontController::class, 'simpan_pasien']);
 
+Route::get('/menu', [FrontController::class, 'menu']);
+
+Route::get('/antrian', [FrontController::class, 'reservasi']);
+
+Route::get('/daftarpasien', [FrontController::class, 'daftarpasien']);
+
+Route::get('/edit_pasien/{id}', [FrontController::class, 'editpasien']);
+
+Route::post('/update_pasien', [FrontController::class, 'Update_pasien']);
+
+Route::get('/delete_pasien/{id}', [FrontController::class, 'deletepasien']);
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
