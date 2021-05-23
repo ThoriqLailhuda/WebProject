@@ -2,7 +2,7 @@
 
 _Projek aplikasi web manajemen klinik kesehatan_
 
-### Anggota kelompok
+### Anggota kelompok Klinik Kelas C
 * Nur Salma Kholidawafi (M0519071)
 * Sahdewi Bunga Safira (M0519074)
 * Thoriq Lailhuda (M0519079)
@@ -50,3 +50,4 @@ __!Kalau dulu sudah clone, tinggal jalankan git pull.!__
 ## Source
 * Install composer and laravel guide [here](https://laravel.com/docs/4.2).
 * Setting after clone guide [here](https://stackoverflow.com/questions/38602321/cloning-laravel-project-from-github).
+* Controller, Database, Migration & Model [here](https://www.youtube.com/watch?v=IrR1Vic4onQ).
