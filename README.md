@@ -13,22 +13,28 @@ _Projek aplikasi web manajemen klinik kesehatan_
 Cara berkontribusi:
 
 ### Requirement configuration
+
 1. Clone proyek ini ke dalam direktori (C:\xampp\htdocs\nama-direktori). 
 __!Kalau dulu sudah clone, tinggal jalankan git pull.!__
 
-1. Download dan Install __Composer__ [disini](https://getcomposer.org/Composer-Setup.exe). Link merupakan installer, jadi tinggal diinstall seperti biasa.
+1. Download dan Install __Composer__ [disini](https://getcomposer.org/Composer-Setup.exe),
 
-1. Install __Laravel__ menggunakan composer. Buka __cmd__, lalu masukan `composer global require "laravel/installer=~1.1"`, lalu tekan _enter_.
+1. Buka __cmd__, lalu masukan `composer global require "laravel/installer=~1.1"`, lalu tekan _enter_,
 
-1. Download dan Install __NodeJs__ [disini](https://nodejs.org/en/download/). Link merupakan installer, jadi tinggal diinstall seperti biasa.
+1. Buka projek dalam Visual Studio, 
 
-1. Buka projek dalam _text editor_, lalu masuk ke dalam terminal (_dalam VSCode menggunakan shortcut 'Ctrl+\`'_), masukan `composer install`, tekan _enter_, lalu tunggu hingga selesai.
+1. Buka terminal (_Menu Terminal -> New Terminal_), 
 
-1. Selanjutnya, masih dalam terminal, masukan `npm install`, tekan _enter_, lalu tunggu hingga selesai.
+1. Masukan `composer install`, tekan _enter_, lalu tunggu hingga selesai.
 
 
 ### Setting environment
-1. Menghubungkan env ke database menggunakan MySql (_dalam browser buka_ `https:/localhost/phpmyadmin`).
+
+1. Masukan `php artisan migrate` dalam terminal di VSCode.
+
+1. Masukan `copy .env.example .env`,
+
+1. Menghubungkan env ke database, buka file `.env`, ubah nama database.
 
 1. Masukan `php artisan key:generate` dalam terminal di VSCode.
 
@@ -39,3 +45,4 @@ __!Kalau dulu sudah clone, tinggal jalankan git pull.!__
 
 ## Source
 * Install composer and laravel guide [here](https://laravel.com/docs/4.2).
+* Setting after clone guide [here](https://stackoverflow.com/questions/38602321/cloning-laravel-project-from-github).
