@@ -27,16 +27,20 @@ __!Kalau dulu sudah clone, tinggal jalankan git pull.!__
 
 1. Masukan `composer install`, tekan _enter_, lalu tunggu hingga selesai.
 
+1. Jangan lupa mengaktifkan _Apache_ dan _MySql_ pada __XAMPP__.
+
 
 ### Setting environment
 
+1. Masih pada terminal, masukan `copy .env.example .env`,
+
+1. Menghubungkan env ke database, buka file `.env`, ubah nama database (terserah, contohnya: `klinik`).
+
+1. Buka browser, buka `http://localhost/phpmyadmin`, buat database dengan nama yg sama.
+
+1. Kembali ke terminal, masukan `php artisan key:generate` dalam terminal di VSCode.
+
 1. Masukan `php artisan migrate` dalam terminal di VSCode.
-
-1. Masukan `copy .env.example .env`,
-
-1. Menghubungkan env ke database, buka file `.env`, ubah nama database.
-
-1. Masukan `php artisan key:generate` dalam terminal di VSCode.
 
 1. Masukan `php artisan serve` untuk mengcompile dan mengeksekusi.
 
