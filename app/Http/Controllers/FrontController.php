@@ -44,11 +44,6 @@ class FrontController extends Controller
     {
      return view('kunjungan_poli');    
     }
-    public function dokter()
-    {
-     return view('dokter');
-        
-    }
 
     public function antrian()
     {
