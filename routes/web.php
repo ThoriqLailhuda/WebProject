@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\FrontController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\pasien;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +22,7 @@ Route::get('/', function () {
 
 Route::get('/about', [FrontController::class, 'about']);
 
-Route::post('/simpan_pasien', [FrontController::class, 'simpan_pasien']);
+Route::post('/simpan_pasien', [pasien::class, 'store']);
 
 Route::post('/simpan_reservasi', [FrontController::class, 'simpan_reservasi']);
 
@@ -40,12 +42,8 @@ Route::get('/reservasi_pasien', [FrontController::class, 'reservasipasien']);
 
 Route::get('/dokter', [FrontController::class, 'dokter']);
 Route::get('/perawat', [FrontController::class, 'perawat']);
-
-
 Route::get('/kunjungan', [FrontController::class, 'kunjungan']);
 Route::get('/kunjungan_poli', [FrontController::class, 'kunjungan_poli']);
-
-
 Route::get('/get_kabupaten/{id}', [FrontController::class, 'getkabupaten']);
 Route::get('/get_kecamatan/{id}', [FrontController::class, 'getkecamatan']);
 Route::get('/get_kelurahan/{id}', [FrontController::class, 'getkelurahan']);

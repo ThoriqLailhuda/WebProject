@@ -30,7 +30,7 @@ class FrontController extends Controller
     }
 
     public function kunjungan()
-    {
+    {   
      return view('kunjungan');   
     }
 
@@ -42,8 +42,7 @@ class FrontController extends Controller
 
     public function kunjungan_poli()
     {
-     return view('kunjungan_poli');
-        
+     return view('kunjungan_poli');    
     }
     public function dokter()
     {
