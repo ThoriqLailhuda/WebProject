@@ -11,6 +11,7 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="<?php echo asset ('css/styles.css');?>" rel="stylesheet" />
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        
     </head>
     <body>
         <div class="d-flex" id="wrapper">
@@ -21,10 +22,13 @@
                     <a class="list-group-item list-group-item-action bg-light" href="{{url('/home')}}">Masukan Nama pasien</a>
                     <a class="list-group-item list-group-item-action bg-light" href="{{url('/antrian')}}">Lihat Antrian</a>
                     <a class="list-group-item list-group-item-action bg-light" href="{{url('/daftarpasien')}}">Lihat Data</a>
-                    <a class="list-group-item list-group-item-action bg-light" href="#!">Events</a>
-                    <a class="list-group-item list-group-item-action bg-light" href="#!">Profile</a>
-                    <a class="list-group-item list-group-item-action bg-light" href="#!">Status</a>
+                    <a class="list-group-item list-group-item-action bg-light" href="{{url('/reservasi_pasien')}}">reservasi</a>
+                    <a class="list-group-item list-group-item-action bg-light" href="{{url('/kunjungan')}}">Kunjungan</a>
+                    <a class="list-group-item list-group-item-action bg-light" href="{{url('/dokter')}}">Kunjungan Poli</a>
+                    <a class="list-group-item list-group-item-action bg-light" href="{{url('/perawat')}}">Kunjungan Poli</a>
+                    <a class="list-group-item list-group-item-action bg-light" href="{{url('/kunjungan_poli')}}">Kunjungan Poli</a>
                 </div>
+                
             </div>
             <!-- Page Content-->
             <div id="page-content-wrapper">
@@ -62,7 +66,7 @@
             </div>
         </div>
         <!-- Bootstrap core JS-->
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="<?php echo asset('js/scripts.js') ;?>"></script>

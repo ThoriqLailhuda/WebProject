@@ -19,7 +19,15 @@
                 RT
                     <input type="number" class="form-control" name="rt" value="{{$daftarpasien[0]->rt}}"required>
                 RW
-                    <input type="number" class="form-control" name="rw" value="{{$daftarpasien[0]->rw}}"required>
+                     <input type="number" class="form-control" name="rw" value="{{$daftarpasien[0]->rw}}"required>
+                Provinsi
+                    <input type="number" class="form-control" name="rw" value="{{$daftarpasien[0]->prov}"required>
+                Kabupaten 
+                    <input type="number" class="form-control" name="rw" value="{{$daftarpasien[0]->kab}}"required>
+                Kecamatan 
+                    <input type="number" class="form-control" name="rw" value="{{$daftarpasien[0]->kec}}"required>
+                Kelurahan 
+                    <input type="number" class="form-control" name="rw" value="{{$daftarpasien[0]->kel}}"required>
 
                     <input type="hidden" class="form-control" name="id" value="{{$daftarpasien[0]->id}}"required>
                 <br>
