@@ -22,7 +22,7 @@
                     <a class="list-group-item list-group-item-action bg-light" href="{{url('/home')}}">Masukan Nama pasien</a>
                     <a class="list-group-item list-group-item-action bg-light" href="{{url('/antrian')}}">Lihat Antrian</a>
                     <a class="list-group-item list-group-item-action bg-light" href="{{url('/daftarpasien')}}">Lihat Data</a>
-                    <a class="list-group-item list-group-item-action bg-light" href="{{url('/reservasi_pasien')}}">reservasi</a>
+                    <a class="list-group-item list-group-item-action bg-light" href="{{url('/reservasi_pasien')}}">Reservasi</a>
                     <a class="list-group-item list-group-item-action bg-light" href="{{url('/kunjungan')}}">Kunjungan</a>
                     <a class="list-group-item list-group-item-action bg-light" href="{{url('/dokter')}}">Dokter</a>
                     <a class="list-group-item list-group-item-action bg-light" href="{{url('/perawat')}}">Perawat</a>
