@@ -6,18 +6,12 @@
 
 <form action="{{url('daftar_kunjungan')}}" method="post" required>
                                 {{csrf_field()}}
-                                Id reservasi
-                                <input type="text" class="form-control" name="Id_reservasi" required>
-                                Id Penyakit 
-                                <input type="number" class="form-control" name="id_penyakit" required>
-                                Tekanan Darah 
-                                <input type="number" class="form-control" name="tekanan_darah" required>
-                                Denyut Nadi
-                                <input type="number" class="form-control" name="denyut_nadi" required>
-                                Usia Bulan 
-                                <input type="text" class="form-control" name="usia_bulan" required>
-                                Usia hari 
-                                <input type="text" class="form-control" name="usia hari" required>
+                                Id
+                                <input type="text" class="form-control" name="id" required>
+                                Nama
+                                <input type="text" class="form-control" name="nama" required>
+                                Nomor Telpon
+                                <input type="text" class="form-control" name="no_telp" required>
                                 Create by 
                                 <input type="text" class="form-control" name="cretae_by" required>
                                 Create add
