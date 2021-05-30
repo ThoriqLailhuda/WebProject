@@ -31,7 +31,12 @@ class FrontController extends Controller
 
     public function kunjungan()
     {
-     return view('kunjungan');
+     return view('kunjungan');   
+    }
+
+    public function perawat()
+    {
+     return view('perawat');
         
     }
 

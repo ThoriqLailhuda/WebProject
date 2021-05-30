@@ -25,7 +25,7 @@
                     <a class="list-group-item list-group-item-action bg-light" href="{{url('/reservasi_pasien')}}">reservasi</a>
                     <a class="list-group-item list-group-item-action bg-light" href="{{url('/kunjungan')}}">Kunjungan</a>
                     <a class="list-group-item list-group-item-action bg-light" href="{{url('/dokter')}}">Kunjungan Poli</a>
-                    <a class="list-group-item list-group-item-action bg-light" href="{{url('/perawat')}}">Kunjungan Poli</a>
+                    <a class="list-group-item list-group-item-action bg-light" href="{{url('/perawat')}}">perawat</a>
                     <a class="list-group-item list-group-item-action bg-light" href="{{url('/kunjungan_poli')}}">Kunjungan Poli</a>
                 </div>
                 
