@@ -46,9 +46,10 @@
                                 provinsi
                                 <select class="form-control" name="id_provinsi" id="id_provinsi" onchange="ambilkabupaten()">
 
-                                     <?php foreach ($provinsi->provinsi as $value) { ?>
-                                        <option value="{{$value-> id}}">{{$value->nama}}</option>
+                                    <?php foreach ($provinsi->provinsi as $value) { ?>
+                                        <option value="{{$value-> id}}">{{$value->nama}} </option>
                                     <?php } ?>
+                                    
                                 </select>
                                 Kabupaten
                                 <select class="form-control" name="id_kabupaten" id="id_kabupaten" onchange="ambilkecamatan()">
