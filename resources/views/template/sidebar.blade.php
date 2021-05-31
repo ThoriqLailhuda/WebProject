@@ -26,7 +26,15 @@
                     <a class="list-group-item list-group-item-action bg-light" href="{{url('/kunjungan')}}">Kunjungan</a>
                     <a class="list-group-item list-group-item-action bg-light" href="{{url('/dokter')}}">Dokter</a>
                     <a class="list-group-item list-group-item-action bg-light" href="{{url('/perawat')}}">Perawat</a>
+                    <a class="list-group-item list-group-item-action bg-light" href="{{url('/ref_poli_bagian')}}">Refrensi Poli Bagian</a>
                     <a class="list-group-item list-group-item-action bg-light" href="{{url('/kunjungan_poli')}}">Kunjungan Poli</a>
+                    <a class="list-group-item list-group-item-action bg-light" href="{{url('/tindakan')}}">Tindakan</a>
+                    <a class="list-group-item list-group-item-action bg-light" href="{{url('/bhp')}}">BHP</a>
+                    <a class="list-group-item list-group-item-action bg-light" href="{{url('/obat')}}">Obat</a>
+                    <a class="list-group-item list-group-item-action bg-light" href="{{url('/ref_tindakan')}}">Refrensi Tindakan</a>
+                    <a class="list-group-item list-group-item-action bg-light" href="{{url('/ref_obat')}}">Refrensi Obat</a>
+                    <a class="list-group-item list-group-item-action bg-light" href="{{url('/ref_penyakit_icd')}}">Refrensi Penyakit ICD</a>
+                    <a class="list-group-item list-group-item-action bg-light" href="{{url('/ref_bhp')}}">Refrensi BHP</a>
                 </div>
                 
             </div>
