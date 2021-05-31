@@ -34,15 +34,60 @@ class FrontController extends Controller
      return view('kunjungan');   
     }
 
+    public function dokter()
+    {
+     return view('dokter');
+        
+    }
+
     public function perawat()
     {
      return view('perawat');
-        
+    }
+
+    public function ref_poli_bagian()
+    {
+     return view('ref_poli_bagian');
     }
 
     public function kunjungan_poli()
     {
      return view('kunjungan_poli');    
+    }
+
+    public function tindakan()
+    {
+     return view('tindakan');
+    }
+
+    public function bhp()
+    {
+     return view('bhp');   
+    }
+
+    public function obat()
+    {
+     return view('obat');
+    }
+
+    public function ref_tindakan()
+    {
+     return view('ref_tindakan');
+    }
+
+    public function ref_obat()
+    {
+     return view('ref_obat');
+    }
+
+    public function ref_penyakit_icd()
+    {
+     return view('ref_penyakit_icd');
+    }
+
+    public function ref_bhp()
+    {
+     return view('ref_bhp');
     }
 
     public function antrian()
