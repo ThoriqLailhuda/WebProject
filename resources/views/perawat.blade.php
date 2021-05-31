@@ -20,10 +20,8 @@
                                 <input type="text" class="form-control" name="edit_by" required>
                                 Edited Add
                                 <input type="text" class="form-control" name="edit_add" required>
-
                                 <br>
                                 <input type="SUBMIT" class="btn btn-primary">   
-
                                 </form>
 </div>
 @endsection
