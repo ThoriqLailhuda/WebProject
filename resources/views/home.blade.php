@@ -8,7 +8,6 @@
                 <div class="card-header">{{ __('Selamat Datang...') }}</div>
                 <p id="demo"></p>
                 <?php if (Auth::user()->level == 0) {
-                    echo "Pasien";
                     if (count($pasien) < 1) { ?>
                         <div class="card-body">
                             @if (session('status'))
@@ -115,7 +114,7 @@
                 document.getElementById('id_kecamatan').innerHTML = "";
                 var y = document.getElementById('id_kecamatan');
                 var options = document.createElement("option");
-                options.text = "Pilih Kabupaten";
+                options.text = "Pilih Kecamatan";
                 y.add(options);
                 //console.log(response['kota_kabupaten']);
                 for (var i = 0; i < response['kecamatan'].length; i++) {
@@ -141,7 +140,7 @@
                 document.getElementById('id_kelurahan').innerHTML = "";
                 var y = document.getElementById('id_kelurahan');
                 var options = document.createElement("option");
-                options.text = "Pilih Kabupaten";
+                options.text = "Pilih Kelurahan";
                 y.add(options);
                 console.log(response['kelurahan']);
                 for (var i = 0; i < response['kelurahan'].length; i++) {
