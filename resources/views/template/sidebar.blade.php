@@ -33,7 +33,7 @@
             width: 200px;
             height: 100%;
             z-index: 1;
-            overflow-y: scroll;
+            overflow-y: scroll; 
         }
 
         #sidebar::-webkit-scrollbar {
@@ -58,6 +58,8 @@
             <div class="list-group list-group-flush">
                 <?php $user = Auth::user(); ?>
                 <?php if ($user->hasRole('admin')) { ?>
+                    <a class="list-group-item list-group-item-action bg-light" href="{{url('/daftarpasien')}}">Lihat Data</a>
+                    <a class="list-group-item list-group-item-action bg-light" href="{{url('/antrian')}}">Lihat Antrian</a>
                     <?php if ($user->hasRole('kasir')) { ?>
                         <a class="list-group-item list-group-item-action bg-light" href="{{url('/antrian')}}">Lihat Antrian</a>
                         <a class="list-group-item list-group-item-action bg-light" href="{{url('/daftarpasien')}}">Lihat Data</a>
@@ -91,7 +93,9 @@
                     <a class="list-group-item list-group-item-action bg-light" href="{{url('/ref_bhp')}}">Refrensi BHP</a>
                 <?php } else if ($user->hasRole('user')) { ?>
                     <a class="list-group-item list-group-item-action bg-light m-0" href="{{url('/home')}}">Home</a>
+                    <a class="list-group-item list-group-item-action bg-light" href="{{url('/daftarpasien')}}">Lihat Data</a>
                     <a class="list-group-item list-group-item-action bg-light" href="{{url('/reservasi_pasien')}}">Reservasi</a>
+                    <a class="list-group-item list-group-item-action bg-light" href="{{url('/antrian')}}">Lihat Antrian</a>
                 <?php  } ?>
             </div>
         </div>
@@ -112,13 +116,11 @@
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
-
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
-
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>

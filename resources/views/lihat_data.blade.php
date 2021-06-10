@@ -26,7 +26,7 @@
         <th>Kelurahan</th>
         <th>RT</th>
         <th>RW</th>
-        <!-- <th>tindakan</th> -->
+        <th>tindakan</th>
 
       </tr>
     </thead>
