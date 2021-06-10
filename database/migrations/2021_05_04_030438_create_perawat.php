@@ -16,7 +16,7 @@ class CreatePerawat extends Migration
         Schema::create('perawat', function (Blueprint $table) {
             $table-> bigIncrements('id');
             $table-> string('nama');
-            $table-> integer('no_telp');
+            $table-> string('no_telp');
             $table-> string('created_by');
             $table->timestamp('created_at');
             $table->string('edited_by');
