@@ -18,7 +18,7 @@ class CreateKunjungan extends Migration
             $table-> foreignId('id_reservasi')->constrained('reservasi');
             $table-> foreignId('id_pasien')->constrained('pasien');
             $table-> foreignId('id_penyakit')->constrained('ref_penyakit_icd');
-            $table-> integer('tekanan_darah');
+            $table-> string('tekanan_darah');
             $table-> integer('denyut_nadi');
             $table-> integer('usia_bulan');
             $table-> integer('usia_hari');
