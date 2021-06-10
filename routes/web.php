@@ -23,7 +23,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/about', [FrontController::class, 'about']);
+Route::get('/antrian', [FrontController::class, 'antrian']);
+
+Route::get('/home_admin', [FrontController::class, 'home_admin'])->name('home_admin');
 
 Route::post('/simpan_pasien', [pasien::class, 'store']);
 
@@ -56,6 +58,8 @@ Route::get('/kunjungan_poli', [FrontController::class, 'kunjungan_poli']);
 Route::get('/tindakan', [FrontController::class, 'tindakan']);
 
 Route::get('/bhp', [FrontController::class, 'bhp']);
+
+Route::get('/tambahdata_admin', [FrontController::class, 'tambahdata_admin']);
 
 Route::get('/obat', [FrontController::class, 'obat']);
 

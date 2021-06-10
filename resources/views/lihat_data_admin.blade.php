@@ -20,18 +20,18 @@
         <th>NIK</th>
         <th>alamat</th>
         <th>Tempat Lahir</th>
-        <th>Provinsi</th>
+        <th>Alamat</th>
         <th>Kabupaten</th>
         <th>Kecamatan</th>
         <th>Kelurahan</th>
         <th>RT</th>
         <th>RW</th>
-       
+        <th>tindakan</th>
 
       </tr>
     </thead>
     <tbody>
-        <?php foreach($daftarpasien as $value){ ?>
+        <?php foreach($pasien as $value){ ?>
             <tr>
             <td>{{$value->nama}}</td>
             <td>{{$value->no_rm}}</td>
@@ -44,8 +44,10 @@
             <td>{{$value->nama_kelurahan}}</td>
             <td>{{$value->rt}}</td>
             <td>{{$value->rw}}</td>
-            
-          
+            <td>    
+                <a href= "{{url('delete_pasien/'.$value->id)}}"> delete </a>
+                <a href="{{url('edit_pasien/'.$value->id)}}" class="btn btn-danger">edit</a>
+            </td>
 
              
             </tr>

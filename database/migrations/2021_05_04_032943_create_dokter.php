@@ -17,7 +17,7 @@ class CreateDokter extends Migration
             $table->bigIncrements('id');
             $table->string('nama');
             $table->foreignId('id_poli_bagian')->constrained('ref_poli_bagian');
-            $table->integer('no_telp');
+            $table->string('no_telp');
             $table->integer('harga');
             $table->string('created_by');
             $table->timestamp('created_at');
