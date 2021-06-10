@@ -20,15 +20,15 @@ class RoleSeeder extends Seeder
             'guard_name' => 'web'
         ]);
 
-        // DOKTER
+        // ADMIN POLI
         Role::create([
-            'name' => 'dokter',
+            'name' => 'admin_poli',
             'guard_name' => 'web'
         ]);
 
-        // PERAWAT
+        // KASIR
         Role::create([
-            'name' => 'perawat',
+            'name' => 'kasir',
             'guard_name' => 'web'
         ]);
         

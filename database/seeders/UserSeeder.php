@@ -23,41 +23,41 @@ class UserSeeder extends Seeder
 
         $admin->assignRole('admin');
         
-        // Dokter
-        $dokter = User::create([
-            'name' => 'Dokter',
-            'email' => 'dokter@role.com',
-            'password' => bcrypt('dokter')
+        // Admin Poli
+        $adminpoli = User::create([
+            'name' => 'Admin Poli',
+            'email' => 'poli@role.com',
+            'password' => bcrypt('poli')
         ]);
 
-        $dokter->assignRole('dokter');
-        // Dokter dan Admin
-        $dokter2 = User::create([
-            'name' => 'Dokter 2',
-            'email' => 'dokter2@role.com',
-            'password' => bcrypt('dokter')
+        $adminpoli->assignRole('admin_poli');
+        // Admin Poli
+        $adminpoli2 = User::create([
+            'name' => 'Admin Poli 2',
+            'email' => 'poli2@role.com',
+            'password' => bcrypt('poli')
         ]);
 
-        $dokter2->assignRole('dokter');
-        $dokter2->assignRole('admin');
+        $adminpoli2->assignRole('admin_poli');
+        $adminpoli2->assignRole('admin');
 
-        // Perawat
-        $perawat = User::create([
-            'name' => 'Perawat',
-            'email' => 'perawat@role.com',
-            'password' => bcrypt('perawat')
+        // Kasir
+        $kasir = User::create([
+            'name' => 'Kasir',
+            'email' => 'kasir@role.com',
+            'password' => bcrypt('kasir')
         ]);
 
-        $perawat->assignRole('perawat');
-        // Perawat dan Admin
-        $perawat2 = User::create([
-            'name' => 'Perawat 2',
-            'email' => 'perawat2@role.com',
-            'password' => bcrypt('perawat')
+        $kasir->assignRole('kasir');
+        // Kasir dan Admin
+        $kasir2 = User::create([
+            'name' => 'Kasir 2',
+            'email' => 'kasir2@role.com',
+            'password' => bcrypt('kasir')
         ]);
 
-        $perawat2->assignRole('perawat');
-        $perawat2->assignRole('admin');
+        $kasir2->assignRole('kasir');
+        $kasir2->assignRole('admin');
 
         // User biasa
         $user = User::create([

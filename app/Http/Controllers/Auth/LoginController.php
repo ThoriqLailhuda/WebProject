@@ -44,10 +44,10 @@ class LoginController extends Controller
         if ($user->hasRole('admin')) {
             return redirect()->route('home');
         }
-        else if ($user->hasRole('dokter')) {
+        else if ($user->hasRole('admin_poli')) {
             return redirect()->route('home');
         }
-        else if ($user->hasRole('perawat')) {
+        else if ($user->hasRole('kasir')) {
             return redirect()->route('home');
         }
 
