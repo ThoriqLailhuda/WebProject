@@ -3,25 +3,42 @@
 @section('content')
 
 <div class="container">
+    <div class="card card-info card-outline">
+        <div class="card-header">
+            <div class="card-tools">
+                <a href="{{route('create_perawat')}}" class="btn btn-success">Tambah Data</a>
+            
+            </div>
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered">
+                <tr>
+                    <td>Id</td>
+                    <td>Nama</td>
+                    <td>Nomer Telepon</td>
+                    <td>Created by</td>
+                    <td>Created at</td>
+                    <td>Edited by</td>
+                    <td>Edited at</td>
+                </tr>
+                @foreach($dtPerawat as $item)
 
-<form action="{{url('daftar_kunjungan')}}" method="post" required>
-                                {{csrf_field()}}
-                                Id
-                                <input type="text" class="form-control" name="id" required>
-                                Nama
-                                <input type="text" class="form-control" name="nama" required>
-                                Nomor Telpon
-                                <input type="text" class="form-control" name="no_telp" required>
-                                Create by 
-                                <input type="text" class="form-control" name="cretae_by" required>
-                                Create add
-                                <input type="text" class="form-control" name="create_add" required>
-                                Edited by
-                                <input type="text" class="form-control" name="edit_by" required>
-                                Edited Add
-                                <input type="text" class="form-control" name="edit_add" required>
-                                <br>
-                                <input type="SUBMIT" class="btn btn-primary">   
-                                </form>
+                
+                <tr>
+                    <td>{{$item->id}}</td>
+                    <td>{{$item->nama}}</td>
+                    <td>{{$item->no_telp}}</td>
+                    <td>{{$item->created_by}}</td>
+                    <td>{{$item->created_at}}</td>
+                    <td>{{$item->edited_by}}</td>
+                    <td>{{$item->edited_at}}</td>
+                </tr>
+                @endforeach
+            </table>
+
+        </div>
+    
+    </div>
+
 </div>
 @endsection

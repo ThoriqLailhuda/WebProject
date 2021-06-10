@@ -3,7 +3,10 @@
 use App\Http\Controllers\FrontController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\pasien;
-
+use App\Http\Controllers\PerawatController;
+use App\Http\Controllers\RefPoliBagianController;
+use App\Http\Controllers\TindakanController;
+use App\Http\Controllers\RefTindakanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -73,3 +76,18 @@ Route::get('/get_kelurahan/{id}', [FrontController::class, 'getkelurahan']);
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::get('/perawat', [App\Http\Controllers\PerawatController::class, 'index'])->name('perawat');
+Route::get('/create_perawat', [App\Http\Controllers\PerawatController::class, 'create'])->name('create_perawat');
+Route::post('/simpan_perawat', [App\Http\Controllers\PerawatController::class, 'store'])->name('simpan_perawat');
+
+Route::get('/ref_poli_bagian', [App\Http\Controllers\RefPoliBagianController::class, 'index'])->name('ref_poli_bagian');
+Route::get('/create_ref_poli_bagian', [App\Http\Controllers\RefPoliBagianController::class, 'create'])->name('create_ref_poli_bagian');
+Route::post('/simpan_ref_poli_bagian', [App\Http\Controllers\RefPoliBagianController::class, 'store'])->name('simpan_ref_poli_bagian');
+
+Route::get('/tindakan', [App\Http\Controllers\TindakanController::class, 'index'])->name('tindakan');
+Route::get('/create_tindakan', [App\Http\Controllers\TindakanController::class, 'create'])->name('create_tindakan');
+Route::post('/simpan_tindakan', [App\Http\Controllers\TindakanController::class, 'store'])->name('simpan_tindakan');
+
+Route::get('/ref_tindakan', [App\Http\Controllers\RefTindakanController::class, 'index'])->name('ref_tindakan');
+Route::get('/create_ref_tindakan', [App\Http\Controllers\RefTindakanController::class, 'create'])->name('create_ref_tindakan');
+Route::post('/simpan_ref_tindakan', [App\Http\Controllers\RefTindakanController::class, 'store'])->name('simpan_ref_tindakan');

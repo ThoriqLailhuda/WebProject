@@ -70,11 +70,11 @@
                         <a class="list-group-item list-group-item-action bg-light" href="{{url('/ref_bhp')}}">Refrensi BHP</a>
                     <?php  } ?>
                     <a class="list-group-item list-group-item-action bg-light" href="{{url('/dokter')}}">Dokter</a>
-                    <a class="list-group-item list-group-item-action bg-light" href="{{url('/perawat')}}">Perawat</a>
-                    <a class="list-group-item list-group-item-action bg-light" href="{{url('/ref_poli_bagian')}}">Referensi Poli Bagian</a>
+                    <a class="list-group-item list-group-item-action bg-light" href="{{route('perawat')}}">Perawat</a>
+                    <a class="list-group-item list-group-item-action bg-light" href="{{route('ref_poli_bagian')}}">Referensi Poli Bagian</a>
                     <?php if ($user->hasRole('admin_poli')) { ?>
-                        <a class="list-group-item list-group-item-action bg-light" href="{{url('/tindakan')}}">Tindakan</a>
-                        <a class="list-group-item list-group-item-action bg-light" href="{{url('/ref_tindakan')}}">Referensi Tindakan</a>
+                        <a class="list-group-item list-group-item-action bg-light" href="{{route('tindakan')}}">Tindakan</a>
+                        <a class="list-group-item list-group-item-action bg-light" href="{{route('ref_tindakan')}}">Referensi Tindakan</a>
                     <?php  } ?>
                 <?php } else if ($user->hasRole('admin_poli')) { ?>
                     <a class="list-group-item list-group-item-action bg-light" href="{{url('/tindakan')}}">Tindakan</a>
