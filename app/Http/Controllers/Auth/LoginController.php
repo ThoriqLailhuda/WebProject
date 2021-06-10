@@ -40,9 +40,9 @@ class LoginController extends Controller
     }
 
     protected function authenticated(Request $request, $user)
-    {
+    {   
         if ($user->hasRole('admin')) {
-            return redirect()->route('home');
+            return redirect()->route('home_admin');
         }
         else if ($user->hasRole('admin_poli')) {
             return redirect()->route('home');
@@ -50,7 +50,6 @@ class LoginController extends Controller
         else if ($user->hasRole('kasir')) {
             return redirect()->route('home');
         }
-
-        return redirect()->route('home');
+        //return redirect()->route('home');
     }
 }

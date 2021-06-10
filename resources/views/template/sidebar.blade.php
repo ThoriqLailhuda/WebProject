@@ -11,7 +11,7 @@
     <title>{{ __('Klinik Ini') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/app.js') }}"></script>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -60,6 +60,7 @@
                 <?php if ($user->hasRole('admin')) { ?>
                     <a class="list-group-item list-group-item-action bg-light" href="{{url('/daftarpasien')}}">Lihat Data</a>
                     <a class="list-group-item list-group-item-action bg-light" href="{{url('/antrian')}}">Lihat Antrian</a>
+                    <a class="list-group-item list-group-item-action bg-light" href="{{url('/tambahdata_admin')}}">Tambah Data</a>
                     <?php if ($user->hasRole('kasir')) { ?>
                         <a class="list-group-item list-group-item-action bg-light" href="{{url('/antrian')}}">Lihat Antrian</a>
                         <a class="list-group-item list-group-item-action bg-light" href="{{url('/daftarpasien')}}">Lihat Data</a>
