@@ -6,10 +6,12 @@
         <div class="p-5">
             <div class="text-center">
                 <div class="mt-2 text-dark text-sm h1">
-                    Selamat datang di Klinik Amanda <br> Jakarta Selatan
+                    <h3>Selamat datang di Klinik Amanda <br> Jakarta Selatan</h3>
                 </div>
                 <div class="mt-2 text-secondary text-sm">
-                    Di website ini, pasien dapat melakukan reservasi pemeriksaan secara online.
+                    <br> RESERVASI ONLINE - Klinik Amanda
+                    <br> Keluarga Besar RSPI Pondok Indah
+                    <br> © RSPI - 2021
                 </div>
             </div>
         </div>
