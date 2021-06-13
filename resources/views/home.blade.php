@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">{{ __('Selamat Datang...') }}</div>
+                <div class="card-header">{{ __('Silakan lengkapi data diri Anda') }}</div>
                 <?php
                     if (count($pasien) < 1) { ?>
                         <div class="card-body">
@@ -26,35 +26,35 @@
                             <form action="{{url('simpan_pasien')}}" method="post" required>
                                 {{csrf_field()}}
                                 Nama
-                                <input type="text" class="form-control" name="nama" required>
-                                No_Rm
-                                <input type="number" class="form-control" name="no_rm" required>
+                                <input type="text" class="form-control" name="nama" required><br>
+                                No RM
+                                <input type="number" class="form-control" name="no_rm" required><br>
                                 NIK
-                                <input type="number" class="form-control" name="nik" required>
+                                <input type="number" class="form-control" name="nik" required><br>
                                 Alamat
-                                <input type="text" class="form-control" name="alamat" required>
+                                <input type="text" class="form-control" name="alamat" required><br>
                                 Tempat Lahir
-                                <input type="text" class="form-control" name="tempat_lahir" required>
+                                <input type="text" class="form-control" name="tempat_lahir" required><br>
                                 Tanggal lahir
-                                <input type="date" class="form-control" name="tgl_lahir" required>
+                                <input type="date" class="form-control" name="tgl_lahir" required><br>
                                 RT
-                                <input type="number" class="form-control" name="rt" required>
+                                <input type="number" class="form-control" name="rt" required><br>
                                 RW
-                                <input type="number" class="form-control" name="rw" required>
-                                provinsi
+                                <input type="number" class="form-control" name="rw" required><br>
+                                Provinsi
                                 <select class="form-control" name="id_provinsi" id="id_provinsi" onchange="ambilkabupaten()">
 
                                     <?php foreach ($provinsi->provinsi as $value) { ?>
                                         <option value="{{$value-> id}}">{{$value->nama}} </option>
                                     <?php } ?>
                                     
-                                </select>
+                                </select><br>
                                 Kabupaten
                                 <select class="form-control" name="id_kabupaten" id="id_kabupaten" onchange="ambilkecamatan()">
-                                </select>
+                                </select><br>
                                 Kecamatan
                                 <select class="form-control" name="id_kecamatan" id="id_kecamatan" onchange="ambilkelurahan()">
-                                </select>
+                                </select><br>
                                 Kelurahan
                                 <select class="form-control" name="id_kelurahan" id="id_kelurahan">
                                 </select>

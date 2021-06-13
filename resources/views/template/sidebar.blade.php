@@ -30,7 +30,7 @@
 
         #sidebar {
             position: fixed;
-            width: 200px;
+            width: 240px;
             height: 100%;
             z-index: 1;
             overflow-y: scroll; 
@@ -95,7 +95,7 @@
                     <a class="list-group-item list-group-item-action bg-light" href="{{url('/ref_bhp')}}">Refrensi BHP</a>
                 <?php } else if ($user->hasRole('user')) { ?>
                     <a class="list-group-item list-group-item-action bg-light m-0" href="{{url('/home')}}">Home</a>
-                    <a class="list-group-item list-group-item-action bg-light" href="{{url('/daftarpasien')}}">Lihat Data</a>
+                    <a class="list-group-item list-group-item-action bg-light" href="{{url('/daftarpasien')}}">Data Diri</a>
                     <a class="list-group-item list-group-item-action bg-light" href="{{url('/reservasi_pasien')}}">Reservasi</a>
                     <a class="list-group-item list-group-item-action bg-light" href="{{url('/antrian')}}">Lihat Antrian</a>
                 <?php  } ?>
