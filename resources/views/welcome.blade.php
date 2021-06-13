@@ -10,7 +10,7 @@
                 </div>
                 <div class="mt-2 text-secondary text-sm">
                     <br> RESERVASI ONLINE - Klinik Amanda
-                    <br> Keluarga Besar RSPI Pondok Indah
+                    <br> Keluarga Besar Rumah Sakit Pondok Indah Jakarta Selatan
                     <br> © RSPI - 2021
                 </div>
             </div>
