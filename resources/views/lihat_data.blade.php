@@ -11,25 +11,61 @@
                     </script>
                     @endif
 <div class="container">
-  <h2>Bordered Table</h2>            
+  <h2>Data Diri</h2>            
   <table class="table table-bordered">
-    <thead>
+    <!-- <thead> -->
       <tr>
-        <th>Nama</th>
-        <th>no_rm</th>
-        <th>NIK</th>
-        <th>alamat</th>
-        <th>Tempat Lahir</th>
-        <th>Provinsi</th>
-        <th>Kabupaten</th>
-        <th>Kecamatan</th>
-        <th>Kelurahan</th>
-        <th>RT</th>
-        <th>RW</th>
-       
+        <td>Nama</td>
+      </tr>
+      <tr>
+        <td>No RM</td>
+      </tr>
+      <tr>
+        <td>NIK</td>
+      </tr>
+      <tr>
+        <td>Alamat</td>
+      </tr>
+      <tr>
+        <td>Tempat Lahir</td>
+      </tr>
+      <tr>
+        <td>Provinsi</td>
+      </tr>
+      <tr>
+        <td>Kabupaten</td>
+      </tr>
+      <tr>
+        <td>Kecamatan</td>
+      </tr>
+      <tr>
+        <td>Kelurahan</td>
+      </tr>
+      <tr>
+        <td>RT</td>
+      </tr>
+      <tr>
+        <td>RW</td>
+      </tr>       
 
       </tr>
-    </thead>
+    <!-- </thead> -->
+    
+    <p>
+      <!-- <tr> -->
+        <!-- Nama<br>
+        No RM<br>
+        NIK<br>
+        Alamat<br>
+        Tempat Lahir<br>
+        Provinsi<br>
+        Kabupaten<br>
+        Kecamatan<br>
+        Kelurahan<br>
+        RT<br>
+        RW<br> -->
+       <!-- </tr> -->
+    </p>
     <tbody>
         <?php foreach($daftarpasien as $value){ ?>
             <tr>

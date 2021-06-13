@@ -6,7 +6,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">{{ __('Selamat Datang...') }}</div>
+                <div class="card-header">{{ __('Pilih Waktu Reservasi') }}</div>
                 <p id="demo"></p>
                 <div class="card-body">
                     @if (session('status'))
@@ -26,12 +26,12 @@
                 <form action="{{url('simpan_reservasi')}}" method="post" required>
                 {{csrf_field()}}
                 Nama
-                    <input type="text" class="form-control" value="{{$reservasi[0]->nama}}" required>
-                    <input type="hidden" class="form-control" name="id_pasien" value="{{$reservasi[0]->id}}" required>
-                Tanggal Pemesanan
-                    <input type="date" class="form-control" name="tanggal_rencana_datang"required>
+                    <input type="text" class="form-control" required>
+                    <input type="hidden" class="form-control" name="id_pasien" required><br>
+                Tanggal Reservasi
+                    <input type="date" class="form-control" name="tanggal_rencana_datang"required><br>
                
-                NO HP
+                No HP
                     <input type="number" class="form-control" name="int_telp"required>
 
                 <!-- POLI Bagian

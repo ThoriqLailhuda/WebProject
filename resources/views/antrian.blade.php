@@ -11,14 +11,14 @@
                     </script>
                     @endif
 <div class="container">
-  <h2>Bordered Table</h2>            
+  <h2>Daftar Antrian</h2>            
   <table class="table table-bordered">
     <thead>
       <tr>
-        <th>No</th>            
-        <th>Nama</th>
-        <th>tanggal datang</th>
-        <th>No HP</th>
+        <th style="text-align:center" width="20px">No</th>            
+        <th style="text-align:center" width="300px">Nama</th>
+        <th style="text-align:center" width="200px">Tanggal Reservasi</th>
+        <th style="text-align:center" width="200px">No HP</th>
 
         <?php 
         $user = Auth::user();
@@ -30,10 +30,10 @@
     <tbody>
         <?php $nomer=1; foreach($reservasi as $value){ ?>
             <tr>
-            <td>{{$nomer}}</td>
-            <td>{{$value->nama}}</td>
-            <td>{{$value->tanggal_rencana_datang}}</td>
-            <td>{{$value->int_telp}}</td>
+            <td style="text-align:center">{{$nomer}}</td>
+            <td style="text-align:center">{{$value->nama}}</td>
+            <td style="text-align:center">{{$value->tanggal_rencana_datang}}</td>
+            <td style="text-align:center">{{$value->int_telp}}</td>
             <?php 
               $user = Auth::user();
               if($user->hasRole('admin')){
