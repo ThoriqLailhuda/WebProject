@@ -6,7 +6,7 @@
         <div class="p-5">
             <div class="text-center">
                 <div class="mt-2 text-dark text-sm h1">
-                    <br><h3>Selamat datang di Klinik Amanda <br> Jakarta Selatan</h3>
+                    <br><br><h3>Selamat datang di Klinik Amanda <br> Jakarta Selatan</h3>
                 </div>
                 <div class="mt-2 text-secondary text-sm">
                     <br> RESERVASI ONLINE - Klinik Amanda
@@ -17,7 +17,7 @@
         </div>
 
         <div class="p-5">
-            <br><img src="{{ URL::to('/assets/hospital.jpg') }}" class="shadow img-fluid mx-auto" alt="Gambar Klinik" id="hospital">
+            <br><br><img src="{{ URL::to('/assets/hospital.jpg') }}" class="shadow img-fluid mx-auto" alt="Gambar Klinik" id="hospital">
         </div>
     </div>
 </div>
