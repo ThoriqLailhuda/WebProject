@@ -45,6 +45,8 @@ Route::get('/delete_pasien/{id}', [FrontController::class, 'deletepasien']);
 
 Route::get('/reservasi_pasien', [FrontController::class, 'reservasipasien']);
 
+Route::get('/reservasi_admin', [FrontController::class, 'reservasiadmin']);
+
 Route::get('/dokter', [FrontController::class, 'dokter']);
 
 Route::get('/perawat', [FrontController::class, 'perawat']);
