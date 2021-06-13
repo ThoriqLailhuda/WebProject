@@ -6,7 +6,7 @@
         <div class="p-5">
             <div class="text-center">
                 <div class="mt-2 text-dark text-sm h1">
-                    <br><br><h3>Selamat datang di Klinik Amanda <br> Jakarta Selatan</h3>
+                    <br><br><h2>Selamat datang di Klinik Amanda <br> Jakarta Selatan</h2>
                 </div>
                 <div class="mt-2 text-secondary text-sm">
                     <br> RESERVASI ONLINE - Klinik Amanda
