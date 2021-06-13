@@ -36,13 +36,22 @@
                     <input type="date" class="form-control" name="tanggal_rencana_datang"required>
                 NO HP
                     <input type="number" class="form-control" name="int_telp"required>
+
                 POLI Bagian
-                    <input type="number" class="form-control" name="id_poli_bagian"required>
+                <select name="id_poli_bagian" class="form-control" > 
+                <?php foreach($reservasi_polibagian as $reservasipoli) { ?>
+                <option value="{{$reservasipoli->id}}"> {{$reservasipoli->nama}} </option>
+                <?php } ?>
+                </select>
                 Dokter
-                    <input type="text" class="form-control" name="id_dokter"required>
+                <select name="id_dokter" class="form-control" > 
+                <?php foreach($reservasi_dokter as $reservasidokter) { ?>
+                <option value="{{$reservasidokter->id}}"> {{$reservasidokter->nama}} </option>
+                <?php } ?>
+                </select>
                 Status Pasien
                     <input type="text" class="form-control" name="Status_pasien"required>
-                Creat By
+                Creat By  
                     <input type="text" class="form-control" name="created_by"required>
                 edited by
                     <input type="text" class="form-control" name="edited_by"required>

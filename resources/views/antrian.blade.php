@@ -37,8 +37,14 @@
             <?php 
               $user = Auth::user();
               if($user->hasRole('admin')){
-                  echo " <td><button class='btn btn-primary' onclick = 'Lengkapi_data(".$value->id.")'>lengkapi data </button> </td>  ";
-            }?>
+                if($value-> id_poli_bagian != ''){
+                  echo " <td><button class='btn btn-success' onclick = 'Lengkapi_data(".$value->id.")'>Masukan Kunjungan  </button> </td>  ";
+                }
+                else {
+                $parse = $value->id.',"'.$value->nama.'","'.$value->tanggal_rencana_datang.'",'.$value->int_telp;
+                echo " <td><button class='btn btn-primary' onclick = 'Lengkapi_data(".$parse.")'>lengkapi data </button> </td>  ";
+                }
+           }?>
             </tr>
         <?php $nomer++; } ?>
     </tbody>
@@ -48,10 +54,41 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-body">
-        
-            
-
-      </div>
+      <form action="{{url('simpan_reservasi_admin')}}" method="post" required>
+                {{csrf_field()}}   
+                Nama
+                <input type="text" class="form-control" disabled  id="nama">
+                Tanggal Pemesanan
+                <input type="text" class="form-control" disabled  id="tanggalpemesanan">
+                NO HP
+                <input type="text" class="form-control" disabled id="nohp">
+                POLI Bagian
+                <select name="id_poli_bagian" class="form-control" > 
+                <?php foreach($reservasi_polibagian as $reservasipoli) { ?>
+                <option value="{{$reservasipoli->id}}"> {{$reservasipoli->nama}} </option>
+                <?php } ?>
+                </select>
+                Dokter
+                <select name="id_dokter" class="form-control" > 
+                <?php foreach($reservasi_dokter as $reservasidokter) { ?>
+                <option value="{{$reservasidokter->id}}"> {{$reservasidokter->nama}} </option>
+                <?php } ?>
+                </select>
+                Status Pasien
+                    <input type="text" class="form-control" name="status_pasien"required>
+                Creat By  
+                    <input type="text" class="form-control" name="created_by"required>
+                edited by
+                    <input type="text" class="form-control" name="edited_by"required>    
+                 <input type="hidden" class="form-control" name="id"required id="id">
+                <br>
+                <input type="SUBMIT" class="btn btn-primary">
+                
+                    </form>                 
+            </div>
+        </div>
+    </div>
+      
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
@@ -60,7 +97,11 @@
 </div>
 
 <script>
-function Lengkapi_data(id){
+function Lengkapi_data(id , nama ,tanggalpemesanan , nomerhp  ){
+  document.getElementById("id").value = id ;
+  document.getElementById("nama").value = nama ;
+  document.getElementById("tanggalpemesanan").value = tanggalpemesanan ;
+  document.getElementById("nohp").value = nomerhp ;
   $('#myModal').modal('show');
 }
 </script>

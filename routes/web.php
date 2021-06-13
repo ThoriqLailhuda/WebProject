@@ -29,6 +29,8 @@ Route::get('/home_admin', [FrontController::class, 'home_admin'])->name('home_ad
 
 Route::post('/simpan_pasien', [pasien::class, 'store']);
 
+Route::post('/simpan_reservasi_admin', [FrontController::class,'simpan_reservasi_admin']);
+
 Route::post('/simpan_reservasi', [FrontController::class, 'simpan_reservasi']);
 
 Route::get('/menu', [FrontController::class, 'menu']);

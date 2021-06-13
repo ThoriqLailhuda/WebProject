@@ -117,17 +117,18 @@ class FrontController extends Controller
 
     public function antrian()
     {
-        
+        $data["reservasi"] = DB::table('pasien')->select("*")->get();
+        $data["reservasi_polibagian"] = DB::table('ref_poli_bagian')->select("*")->get();
+        $data["reservasi_dokter"] = DB::table('dokter')->select("*")->get();
         $user = Auth::user(); 
         if ($user->hasRole('admin')) {
             $data["reservasi"] = DB::table('reservasi')->join('pasien', 'reservasi.id_pasien', 'pasien.id')
-            ->select("*")
-            ->whereNull('id_poli_bagian')
+            ->select("reservasi.*","pasien.nama")
             ->get();
         }
         else{
             $data["reservasi"] = DB::table('reservasi')->join('pasien', 'reservasi.id_pasien', 'pasien.id')
-            ->select("*")
+            ->select("reservasi.*","pasien.nama")
             ->get(); 
         }
         return view('antrian', $data);
@@ -135,7 +136,10 @@ class FrontController extends Controller
         public function reservasiadmin ()
     {
         $data["reservasi"] = DB::table('pasien')->select("*")->get();
+        $data["reservasi_polibagian"] = DB::table('ref_poli_bagian')->select("*")->get();
+        $data["reservasi_dokter"] = DB::table('dokter')->select("*")->get();
         return view('reservasi_admin',$data);
+
     }
 
 
@@ -153,6 +157,15 @@ class FrontController extends Controller
         }
     }
 
+    public function simpan_reservasi_admin(Request $post)
+    {
+        $data = $post->except('_token');
+        $q= DB::table('reservasi')->where('id',$data['id'])->update($data);
+        if ($q) {
+            return redirect('/antrian')->with('success', "Berhasil!");
+        }
+    }
+    
 
 
     public function reservasi()
