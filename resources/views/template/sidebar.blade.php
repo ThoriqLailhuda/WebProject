@@ -52,7 +52,7 @@
         <div class="bg-light border-right" id="sidebar">
             <div class="sidebar-header text-center pt-3 h3">
                 <a class="text-dark m-0" href="{{ url('/') }}">
-                    {{ __('Klinik Ini') }}
+                    {{ __('Klinik Amanda Jakarta Selatan') }}
                 </a>
             </div>
             <div class="list-group list-group-flush">
