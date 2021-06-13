@@ -19,6 +19,12 @@
         <th>Nama</th>
         <th>tanggal datang</th>
         <th>No HP</th>
+
+        <?php 
+        $user = Auth::user();
+        if($user->hasRole('admin')){
+          echo "<th>tindakan</th>";
+        }?>
       </tr>
     </thead>
     <tbody>
@@ -28,20 +34,35 @@
             <td>{{$value->nama}}</td>
             <td>{{$value->tanggal_rencana_datang}}</td>
             <td>{{$value->int_telp}}</td>
-
-              
-          <?php  if (Auth::user()->level==1){ ?>
-            <td>
-            <a href="{{url('edit_pasien/'.$value->id)}}" class="btn btn-danger">edit</a>
-            <a href= "{{url('delete_pasien/'.$value->id)}}"> delete </a>
-                </td>
-         <?php  }?> 
-         
-
-             
+            <?php 
+              $user = Auth::user();
+              if($user->hasRole('admin')){
+                  echo " <td><button class='btn btn-primary' onclick = 'Lengkapi_data(".$value->id.")'>lengkapi data </button> </td>  ";
+            }?>
             </tr>
         <?php $nomer++; } ?>
     </tbody>
   </table>
 </div>
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        
+            
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function Lengkapi_data(id){
+  $('#myModal').modal('show');
+}
+</script>
+
 @endsection

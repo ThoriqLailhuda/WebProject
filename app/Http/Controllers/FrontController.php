@@ -117,8 +117,25 @@ class FrontController extends Controller
 
     public function antrian()
     {
-        $data["reservasi"] = DB::table('reservasi')->join('pasien', 'reservasi.id_pasien', 'pasien.id')->select("*")->get();
+        
+        $user = Auth::user(); 
+        if ($user->hasRole('admin')) {
+            $data["reservasi"] = DB::table('reservasi')->join('pasien', 'reservasi.id_pasien', 'pasien.id')
+            ->select("*")
+            ->whereNull('id_poli_bagian')
+            ->get();
+        }
+        else{
+            $data["reservasi"] = DB::table('reservasi')->join('pasien', 'reservasi.id_pasien', 'pasien.id')
+            ->select("*")
+            ->get(); 
+        }
         return view('antrian', $data);
+    }
+        public function reservasiadmin ()
+    {
+        $data["reservasi"] = DB::table('pasien')->select("*")->get();
+        return view('reservasi_admin',$data);
     }
 
 

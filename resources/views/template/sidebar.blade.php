@@ -61,6 +61,7 @@
                     <a class="list-group-item list-group-item-action bg-light" href="{{url('/daftarpasien')}}">Lihat Data</a>
                     <a class="list-group-item list-group-item-action bg-light" href="{{url('/antrian')}}">Lihat Antrian</a>
                     <a class="list-group-item list-group-item-action bg-light" href="{{url('/tambahdata_admin')}}">Tambah Data</a>
+                    <a class="list-group-item list-group-item-action bg-light" href="{{url('/reservasi_admin')}}">Reservasi</a>
                     <?php if ($user->hasRole('kasir')) { ?>
                         <a class="list-group-item list-group-item-action bg-light" href="{{url('/antrian')}}">Lihat Antrian</a>
                         <a class="list-group-item list-group-item-action bg-light" href="{{url('/daftarpasien')}}">Lihat Data</a>
