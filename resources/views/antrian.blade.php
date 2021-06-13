@@ -17,7 +17,7 @@
       <tr>
         <th>No</th>            
         <th>Nama</th>
-        <th>tanggal datang</th>
+        <th>Tanggal Datang</th>
         <th>No HP</th>
 
         <?php 
