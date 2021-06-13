@@ -26,8 +26,8 @@
                 <form action="{{url('simpan_reservasi')}}" method="post" required>
                 {{csrf_field()}}
                 Nama
-                    <input type="text" class="form-control" value="{{$reservasi[0]->nama}}" required>
-                    <input type="hidden" class="form-control" name="id_pasien" value="{{$reservasi[0]->id}}" required>
+                    <input type="text" class="form-control" required>
+                    <input type="hidden" class="form-control" name="id_pasien" required>
                 Tanggal Pemesanan
                     <input type="date" class="form-control" name="tanggal_rencana_datang"required>
                

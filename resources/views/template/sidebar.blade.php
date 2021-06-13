@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ __('Klinik Ini') }}</title>
+    <title>{{ __('Klinik Amanda Jakarta Selatan') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
@@ -52,7 +52,7 @@
         <div class="bg-light border-right" id="sidebar">
             <div class="sidebar-header text-center pt-3 h3">
                 <a class="text-dark m-0" href="{{ url('/') }}">
-                    {{ __('Klinik Amanda Jakarta Selatan') }}
+                    {{ __('Klinik Amanda') }}
                 </a>
             </div>
             <div class="list-group list-group-flush">
