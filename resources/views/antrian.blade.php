@@ -23,7 +23,7 @@
         <?php 
         $user = Auth::user();
         if($user->hasRole('admin')){
-          echo "<th>tindakan</th>";
+          echo "<th>Keterangan</th>";
         }?>
       </tr>
     </thead>

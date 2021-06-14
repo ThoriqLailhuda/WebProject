@@ -6,7 +6,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">{{ __('Selamat Datang...') }}</div>
+                <div class="card-header">{{ __('Tambah Reservasi') }}</div>
                 <p id="demo"></p>
                 <div class="card-body">
                     @if (session('status'))
@@ -25,36 +25,36 @@
                     @endif
                 <form action="{{url('simpan_reservasi')}}" method="post" required>
                 {{csrf_field()}}
-                Nama
+                Nama Pasien
                 <select name="id_pasien" class="form-control"  >
                 <?php foreach($reservasi as $adminreservasi) { ?>
                 <option value="{{$adminreservasi->id}}">{{$adminreservasi->nama}} </option>
 
                <?php } ?>
-                </select>
+                </select><br>
                 Tanggal Pemesanan
-                    <input type="date" class="form-control" name="tanggal_rencana_datang"required>
-                NO HP
-                    <input type="number" class="form-control" name="int_telp"required>
+                    <input type="date" class="form-control" name="tanggal_rencana_datang"required><br>
+                No HP
+                    <input type="number" class="form-control" name="int_telp"required><br>
 
-                POLI Bagian
+                Poli Bagian
                 <select name="id_poli_bagian" class="form-control" > 
                 <?php foreach($reservasi_polibagian as $reservasipoli) { ?>
                 <option value="{{$reservasipoli->id}}"> {{$reservasipoli->nama}} </option>
                 <?php } ?>
-                </select>
+                </select><br>
                 Dokter
                 <select name="id_dokter" class="form-control" > 
                 <?php foreach($reservasi_dokter as $reservasidokter) { ?>
                 <option value="{{$reservasidokter->id}}"> {{$reservasidokter->nama}} </option>
                 <?php } ?>
-                </select>
+                </select><br>
                 Status Pasien
-                    <input type="text" class="form-control" name="Status_pasien"required>
-                Creat By  
-                    <input type="text" class="form-control" name="created_by"required>
-                edited by
-                    <input type="text" class="form-control" name="edited_by"required>
+                    <input type="text" class="form-control" name="Status_pasien"required><br>
+                Created By  
+                    <input type="text" class="form-control" name="created_by"required><br>
+                Edited by
+                    <input type="text" class="form-control" name="edited_by"required><br>
                 <br>
                 <input type="SUBMIT" class="btn btn-primary">
                 
