@@ -58,10 +58,10 @@
             <div class="list-group list-group-flush">
                 <?php $user = Auth::user(); ?>
                 <?php if ($user->hasRole('admin')) { ?>
-                    <a class="list-group-item list-group-item-action bg-light" href="{{url('/daftarpasien')}}">Lihat Data</a>
-                    <a class="list-group-item list-group-item-action bg-light" href="{{url('/antrian')}}">Lihat Antrian</a>
-                    <a class="list-group-item list-group-item-action bg-light" href="{{url('/tambahdata_admin')}}">Tambah Data</a>
-                    <a class="list-group-item list-group-item-action bg-light" href="{{url('/reservasi_admin')}}">Reservasi</a>
+                    <a class="list-group-item list-group-item-action bg-light" href="{{url('/daftarpasien')}}">Data Pasien</a>
+                    <a class="list-group-item list-group-item-action bg-light" href="{{url('/antrian')}}">Daftar Antrian</a>
+                    <a class="list-group-item list-group-item-action bg-light" href="{{url('/tambahdata_admin')}}">Tambah Data Pasien</a>
+                    <a class="list-group-item list-group-item-action bg-light" href="{{url('/reservasi_admin')}}">Tambah Reservasi</a>
                     <?php if ($user->hasRole('kasir')) { ?>
                         <a class="list-group-item list-group-item-action bg-light" href="{{url('/antrian')}}">Lihat Antrian</a>
                         <a class="list-group-item list-group-item-action bg-light" href="{{url('/daftarpasien')}}">Lihat Data</a>
