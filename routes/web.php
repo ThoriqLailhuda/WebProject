@@ -43,6 +43,9 @@ Route::get('/edit_pasien/{id}', [FrontController::class, 'editpasien']);
 
 Route::post('/update_pasien', [FrontController::class, 'Update_pasien']);
 
+Route::post('/simpan_kunjungan', [FrontController::class, 'simpan_kunjungan']);
+
+
 Route::get('/delete_pasien/{id}', [FrontController::class, 'deletepasien']);
 
 Route::get('/reservasi_pasien', [FrontController::class, 'reservasipasien']);
@@ -80,6 +83,8 @@ Route::get('/get_kabupaten/{id}', [FrontController::class, 'getkabupaten']);
 Route::get('/get_kecamatan/{id}', [FrontController::class, 'getkecamatan']);
 
 Route::get('/get_kelurahan/{id}', [FrontController::class, 'getkelurahan']);
+
+Route::get('/searchpenyakit/{id}', [FrontController::class, 'searchpenyakit']);
 
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

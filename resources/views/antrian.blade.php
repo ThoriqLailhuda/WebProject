@@ -38,7 +38,8 @@
               $user = Auth::user();
               if($user->hasRole('admin')){
                 if($value-> id_poli_bagian != ''){
-                  echo " <td><button class='btn btn-success' onclick = 'Lengkapi_data(".$value->id.")'>Masukan Kunjungan  </button> </td>  ";
+                  $parse = $value->id.',"'.$value->nama.'","'.$value->tanggal_rencana_datang.'",'.$value->int_telp.','.$value->id_pasien;
+                  echo " <td><button class='btn btn-success' onclick = 'masukan_kunjungan(".$parse.")'>Masukan Kunjungan  </button> </td>  ";
                 }
                 else {
                 $parse = $value->id.',"'.$value->nama.'","'.$value->tanggal_rencana_datang.'",'.$value->int_telp;
@@ -96,6 +97,23 @@
   </div>
 </div>
 
+<div id="MyModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+                @include('kunjungan')
+            </div>
+        </div>
+    </div>
+      
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <script>
 function Lengkapi_data(id , nama ,tanggalpemesanan , nomerhp  ){
   document.getElementById("id").value = id ;
@@ -103,6 +121,42 @@ function Lengkapi_data(id , nama ,tanggalpemesanan , nomerhp  ){
   document.getElementById("tanggalpemesanan").value = tanggalpemesanan ;
   document.getElementById("nohp").value = nomerhp ;
   $('#myModal').modal('show');
+}
+
+function masukan_kunjungan(id , nama ,tanggalpemesanan , nomerhp , id_pasien ){
+  document.getElementById("id_reservasi").value = id ;
+  document.getElementById("id_pasien").value = id ;
+  $('#MyModal').modal('show');
+}
+
+function penyakitkunjungan(){
+  var search = document.getElementById("id_penyakit").value ;
+  $.ajax({
+            url: "{{url('searchpenyakit')}}/" + search,
+            type: 'get',
+            dataType: 'json',
+            async: false,
+            success: function(response) {
+              for (i = 0; i < response.length; i++){
+                console.log(response[i]['indonesian_name']);
+                var hasil = document.createElement("P");
+                /*hasil.onclick = function(event) 
+                {
+                  myFunction(response[i]['indonesian_name']);
+                }*/
+                hasil.innerHTML = response[i]['indonesian_name'];
+                hasil.setAttribute("onclick", "myFunction("+response[i]['id']+",'"+response[i]['indonesian_name']+"')");
+                document.getElementById('hasil').appendChild(hasil);
+
+              }
+                
+            }
+        });
+}
+function myFunction(id,val){
+  document.getElementById("penyakit").value = id;                  
+  document.getElementById("id_penyakit").value = val;               
+  document.getElementById('hasil').innerHTML = "";
 }
 </script>
 

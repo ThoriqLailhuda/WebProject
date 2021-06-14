@@ -115,11 +115,22 @@ class FrontController extends Controller
         return view('ref_bhp');
     }
 
+
+    public function searchpenyakit($id)
+    {
+        $user = DB::table('ref_penyakit_icd')
+                ->where('indonesian_name', 'like', '%'.$id.'%')
+                ->get();  
+        echo json_encode($user) ;    
+
+    } 
+
     public function antrian()
     {
         $data["reservasi"] = DB::table('pasien')->select("*")->get();
         $data["reservasi_polibagian"] = DB::table('ref_poli_bagian')->select("*")->get();
         $data["reservasi_dokter"] = DB::table('dokter')->select("*")->get();
+        $data["penyakit"] = DB::table('ref_penyakit_icd')->select("*")->get();
         $user = Auth::user(); 
         if ($user->hasRole('admin')) {
             $data["reservasi"] = DB::table('reservasi')->join('pasien', 'reservasi.id_pasien', 'pasien.id')
@@ -163,6 +174,16 @@ class FrontController extends Controller
         $q= DB::table('reservasi')->where('id',$data['id'])->update($data);
         if ($q) {
             return redirect('/antrian')->with('success', "Berhasil!");
+        }
+    }
+
+    public function simpan_kunjungan(Request $post)
+    {
+        $data = $post->except('_token');
+        //dd($data);
+        $q= DB::table('kunjungan')->insert($data);
+        if ($q) {
+            return redirect('lihat_antrian_admin')->with('success', "Berhasil!");
         }
     }
     

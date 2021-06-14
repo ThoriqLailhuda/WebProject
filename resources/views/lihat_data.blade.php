@@ -2,7 +2,7 @@
 
 @section('content')
 @if (session('success'))
-                    <script>
+                  <script>
                     Swal.fire(
                         'Good job!',
                         'You clicked the button!',

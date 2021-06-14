@@ -1,15 +1,13 @@
-@extends('template.sidebar')
-
-@section('content')
-
-<div class="container">
-
-<form action="{{url('daftar_kunjungan')}}" method="post" required>
+<form action="{{url('simpan_kunjungan')}}" method="post" required>
                                 {{csrf_field()}}
-                                Id reservasi
-                                <input type="text" class="form-control" name="Id_reservasi" required>
-                                Id Penyakit 
-                                <input type="number" class="form-control" name="id_penyakit" required>
+                                nomer  reservasi
+                                <input type="text" class="form-control" name="id_reservasi" id="id_reservasi" required>
+                                nama pasien
+                                <input type="text" class="form-control" name="id_pasien" id="id_pasien" required>
+                                id Penyakit 
+                                <input type="text" class="form-control" id="id_penyakit"  onchange="penyakitkunjungan()" required>
+                                <input type="text" id="penyakit" name="id_penyakit">
+                                   <div id="hasil"> </div>
                                 Tekanan Darah 
                                 <input type="number" class="form-control" name="tekanan_darah" required>
                                 Denyut Nadi
@@ -19,17 +17,17 @@
                                 Usia hari 
                                 <input type="text" class="form-control" name="usia hari" required>
                                 Create by 
-                                <input type="text" class="form-control" name="cretae_by" required>
+                                <input type="text" class="form-control" name="created_by" required>
                                 Create add
-                                <input type="text" class="form-control" name="create_add" required>
+                                <input type="text" class="form-control" name="created_at" >
                                 Edited by
-                                <input type="text" class="form-control" name="edit_by" required>
+                                <input type="text" class="form-control" name="edited_by" required>
                                 Edited Add
-                                <input type="text" class="form-control" name="edit_add" required>
+                                <input type="text" class="form-control" name="edited_at" >
 
                                 <br>
                                 <input type="SUBMIT" class="btn btn-primary">   
 
                                 </form>
-</div>
-@endsection
+
+    
