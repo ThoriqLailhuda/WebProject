@@ -3,33 +3,46 @@
 @section('content')
 
 <div class="container">
+    <div class="card card-info card-outline">
+        <div class="card-header">
+            <div class="card-tools">
+                <a href="{{route('create_dokter')}}" class="btn btn-success">Tambah Data</a>
+            
+            </div>
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered">
+                <tr>
+                    <td>Id</td>
+                    <td>Nama</td>
+                    <td>Id Poli Bagian</td>
+                    <td>Nomer Telepon</td>
+                    <td>Harga</td>
+                    <td>Created by</td>
+                    <td>Created at</td>
+                    <td>Edited by</td>
+                    <td>Edited at</td>
+                </tr>
+                @foreach($dtDokter as $item)
 
-<form action="{{url('daftar_kunjungan')}}" method="post" required>
-                                {{csrf_field()}}
-                                Nama
-                                <input type="text" class="form-control" name="Id_reservasi" required><br>
-                                Id Poli Bagian
-                                <input type="number" class="form-control" name="id_penyakit" required><br>
-                                No HP
-                                <input type="number" class="form-control" name="tekanan_darah" required><br>
-                                
-                                <input type="number" class="form-control" name="denyut_nadi" required><br>
-                                Usia Bulan 
-                                <input type="text" class="form-control" name="usia_bulan" required><br>
-                                Usia Hari 
-                                <input type="text" class="form-control" name="usia hari" required><br>
-                                Created by 
-                                <input type="text" class="form-control" name="cretae_by" required><br>
-                                Created at
-                                <input type="text" class="form-control" name="create_add" required><br>
-                                Edited by
-                                <input type="text" class="form-control" name="edit_by" required><br>
-                                Edited at
-                                <input type="text" class="form-control" name="edit_add" required><br>
+                
+                <tr>
+                    <td>{{$item->id}}</td>
+                    <td>{{$item->nama}}</td>
+                    <td>{{$item->id_poli_bagian}}</td>
+                    <td>{{$item->no_telp}}</td>
+                    <td>{{$item->harga}}</td>
+                    <td>{{$item->created_by}}</td>
+                    <td>{{$item->created_at}}</td>
+                    <td>{{$item->edited_by}}</td>
+                    <td>{{$item->edited_at}}</td>
+                </tr>
+                @endforeach
+            </table>
 
-                                <br>
-                                <input type="SUBMIT" class="btn btn-primary">   
+        </div>
+    
+    </div>
 
-                                </form>
 </div>
 @endsection

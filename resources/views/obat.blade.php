@@ -3,31 +3,46 @@
 @section('content')
 
 <div class="container">
+    <div class="card card-info card-outline">
+        <div class="card-header">
+            <div class="card-tools">
+                <a href="{{route('create_obat')}}" class="btn btn-success">Tambah Data</a>
+            
+            </div>
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered">
+                <tr>
+                    <td>Id</td>
+                    <td>Id Periksa Poli</td>
+                    <td>Id Obat</td>
+                    <td>Harga</td>
+                    <td>Jumlah</td>
+                    <td>Created by</td>
+                    <td>Created at</td>
+                    <td>Edited by</td>
+                    <td>Edited at</td>
+                </tr>
+                @foreach($dtObat as $item)
 
-<form action="{{url('daftar_kunjungan')}}" method="post" required>
-                                {{csrf_field()}}
-                                Id
-                                <input type="text" class="form-control" name="id" required>
-                                Id Periksa Poli
-                                <input type="text" class="form-control" name="id_periksa_poli" required>
-                                Id Obat
-                                <input type="text" class="form-control" name="id_obat" required>
-                                Harga
-                                <input type="int" class="form-control" name="harga" required>
-                                Jumlah
-                                <input type="int" class="form-control" name="jml" required>
-                                Create by 
-                                <input type="text" class="form-control" name="cretae_by" required>
-                                Create add
-                                <input type="text" class="form-control" name="create_add" required>
-                                Edited by
-                                <input type="text" class="form-control" name="edit_by" required>
-                                Edited Add
-                                <input type="text" class="form-control" name="edit_add" required>
+                
+                <tr>
+                    <td>{{$item->id}}</td>
+                    <td>{{$item->id_periksa_poli}}</td>
+                    <td>{{$item->id_obat}}</td>
+                    <td>{{$item->harga}}</td>
+                    <td>{{$item->jml}}</td>
+                    <td>{{$item->created_by}}</td>
+                    <td>{{$item->created_at}}</td>
+                    <td>{{$item->edited_by}}</td>
+                    <td>{{$item->edited_at}}</td>
+                </tr>
+                @endforeach
+            </table>
 
-                                <br>
-                                <input type="SUBMIT" class="btn btn-primary">   
+        </div>
+    
+    </div>
 
-                                </form>
 </div>
 @endsection
