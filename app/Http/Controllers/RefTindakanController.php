@@ -93,6 +93,8 @@ class RefTindakanController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $refTndkn = Ref_tindakan::findorfail($id);
+        $refTndkn->delete();
+        return back();
     }
 }

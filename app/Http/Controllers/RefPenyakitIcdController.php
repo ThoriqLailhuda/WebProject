@@ -93,6 +93,8 @@ class RefPenyakitIcdController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $refPnyktIcd = Ref_penyakit_icd::findorfail($id);
+        $refPnyktIcd->delete();
+        return back();
     }
 }

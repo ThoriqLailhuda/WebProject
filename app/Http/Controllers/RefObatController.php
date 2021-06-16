@@ -93,6 +93,8 @@ class RefObatController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $refObt = Ref_obat::findorfail($id);
+        $refObt->delete();
+        return back();
     }
 }

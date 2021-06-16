@@ -95,6 +95,8 @@ class BhpController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $bhp = Bhp::findorfail($id);
+        $bhp->delete();
+        return back();
     }
 }

@@ -96,6 +96,8 @@ class DokterController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $dktr = Dokter::findorfail($id);
+        $dktr->delete();
+        return back();
     }
 }

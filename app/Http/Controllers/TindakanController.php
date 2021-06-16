@@ -95,6 +95,8 @@ class TindakanController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $tndkn = Tindakan::findorfail($id);
+        $tndkn->delete();
+        return back();
     }
 }

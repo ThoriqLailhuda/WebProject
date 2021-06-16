@@ -93,6 +93,8 @@ class RefBhpController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $refBhp = Ref_bhp::findorfail($id);
+        $refBhp->delete();
+        return back();
     }
 }

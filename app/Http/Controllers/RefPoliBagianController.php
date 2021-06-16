@@ -94,6 +94,8 @@ class RefPoliBagianController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $refPlBgn = Ref_poli_bagian::findorfail($id);
+        $refPlBgn->delete();
+        return back();
     }
 }

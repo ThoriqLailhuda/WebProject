@@ -94,6 +94,8 @@ class PerawatController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $prwt = Perawat::findorfail($id);
+        $prwt->delete();
+        return back();
     }
 }

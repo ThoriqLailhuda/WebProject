@@ -37,7 +37,8 @@
                     <td>{{$item->created_at}}</td>
                     <td>{{$item->edited_by}}</td>
                     <td>{{$item->edited_at}}</td>
-                    <td><a href="{{url('edit_ref_poli_bagian', $item->id)}}"><i class="fas fa-edit"></i></a> | <a href="#"><i class="fas fa-trash" style="color:red"></i></a></td>
+                    <td><a href="{{url('edit_ref_poli_bagian', $item->id)}}"><i class="fas fa-edit"></i></a>
+                     | <a href="{{url('delete_ref_poli_bagian', $item->id)}}"><i class="fas fa-trash" style="color:red"></i></a></td>
                 </tr>
                 @endforeach
             </table>
