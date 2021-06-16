@@ -67,7 +67,8 @@ class RefBhpController extends Controller
      */
     public function edit($id)
     {
-        //
+        $refBhp = Ref_bhp::findorfail($id);
+        return view('edit_ref_bhp', compact('refBhp'));
     }
 
     /**
@@ -79,7 +80,9 @@ class RefBhpController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $refBhp = Ref_bhp::findorfail($id);
+        $refBhp->update($request->all());
+        return redirect('ref_bhp');
     }
 
     /**

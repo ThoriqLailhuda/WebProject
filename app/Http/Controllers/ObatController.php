@@ -70,7 +70,8 @@ class ObatController extends Controller
      */
     public function edit($id)
     {
-        //
+        $obt = Obat::findorfail($id);
+        return view('edit_obat', compact('obt'));
     }
 
     /**
@@ -82,7 +83,9 @@ class ObatController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $obt = Obat::findorfail($id);
+        $obt->update($request->all());
+        return redirect('obat');
     }
 
     /**

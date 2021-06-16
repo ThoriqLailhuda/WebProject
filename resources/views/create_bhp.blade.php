@@ -14,9 +14,9 @@
                                 <input type="text" class="form-control" name="harga" required>
                                 Jumlah
                                 <input type="text" class="form-control" name="jml" required>
-                                Create by 
+                                Created by 
                                 <input type="text" class="form-control" name="created_by" required>
-                                Create at
+                                Created at
                                 <input type="date" class="form-control" name="created_at" required>
                                 Edited by
                                 <input type="text" class="form-control" name="edited_by" required>

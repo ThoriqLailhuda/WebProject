@@ -69,7 +69,8 @@ class BhpController extends Controller
      */
     public function edit($id)
     {
-        //
+        $bhp = Bhp::findorfail($id);
+        return view('edit_bhp', compact('bhp'));
     }
 
     /**
@@ -81,7 +82,9 @@ class BhpController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $bhp = Bhp::findorfail($id);
+        $bhp->update($request->all());
+        return redirect('bhp');
     }
 
     /**

@@ -70,7 +70,8 @@ class DokterController extends Controller
      */
     public function edit($id)
     {
-        //
+        $dktr = Dokter::findorfail($id);
+        return view('edit_dokter', compact('dktr'));
     }
 
     /**
@@ -82,7 +83,9 @@ class DokterController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $dktr = Dokter::findorfail($id);
+        $dktr->update($request->all());
+        return redirect('dokter');
     }
 
     /**

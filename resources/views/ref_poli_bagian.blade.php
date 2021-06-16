@@ -2,6 +2,8 @@
 
 @section('content')
 
+<script src="https://kit.fontawesome.com/edd0d38ada.js" crossorigin="anonymous"></script>
+
 <div class="container">
     <div class="card card-info card-outline">
         <div class="card-header">
@@ -21,6 +23,7 @@
                     <td>Created at</td>
                     <td>Edited by</td>
                     <td>Edited at</td>
+                    <td></td>
                 </tr>
                 @foreach($dtRefPoliBagian as $item)
 
@@ -34,6 +37,7 @@
                     <td>{{$item->created_at}}</td>
                     <td>{{$item->edited_by}}</td>
                     <td>{{$item->edited_at}}</td>
+                    <td><a href="{{url('edit_ref_poli_bagian', $item->id)}}"><i class="fas fa-edit"></i></a> | <a href="#"><i class="fas fa-trash" style="color:red"></i></a></td>
                 </tr>
                 @endforeach
             </table>

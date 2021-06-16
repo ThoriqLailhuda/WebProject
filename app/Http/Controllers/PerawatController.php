@@ -68,7 +68,8 @@ class PerawatController extends Controller
      */
     public function edit($id)
     {
-        //
+        $prwt = Perawat::findorfail($id);
+        return view('edit_perawat', compact('prwt'));
     }
 
     /**
@@ -80,7 +81,9 @@ class PerawatController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $prwt = Perawat::findorfail($id);
+        $prwt->update($request->all());
+        return redirect('perawat');
     }
 
     /**

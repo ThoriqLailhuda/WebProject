@@ -67,7 +67,8 @@ class RefPenyakitIcdController extends Controller
      */
     public function edit($id)
     {
-        //
+        $refPnyktIcd = Ref_penyakit_icd::findorfail($id);
+        return view('edit_ref_penyakit_icd', compact('refPnyktIcd'));
     }
 
     /**
@@ -79,7 +80,9 @@ class RefPenyakitIcdController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $refPnyktIcd = Ref_penyakit_icd::findorfail($id);
+        $refPnyktIcd->update($request->all());
+        return redirect('ref_penyakit_icd');
     }
 
     /**

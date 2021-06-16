@@ -67,7 +67,8 @@ class RefObatController extends Controller
      */
     public function edit($id)
     {
-        //
+        $refObt = Ref_obat::findorfail($id);
+        return view('edit_ref_obat', compact('refObt'));
     }
 
     /**
@@ -79,7 +80,9 @@ class RefObatController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $refObt = Ref_obat::findorfail($id);
+        $refObt->update($request->all());
+        return redirect('ref_obat');
     }
 
     /**
