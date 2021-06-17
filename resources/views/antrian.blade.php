@@ -29,8 +29,8 @@
     </thead>
     <tbody>
         <?php $nomer=1; foreach($reservasi as $value){ 
-            if ($value->id_penyakit > 0) {
-           
+          
+            if ($value->id_penyakit > 0)  {
         ?>
             <tr>
             <td style="text-align:center">{{$nomer}}</td>

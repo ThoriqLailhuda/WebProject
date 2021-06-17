@@ -13,8 +13,7 @@
 <div class="container">
   <h2>Data Diri</h2>            
   <table class="table table-bordered">
-    <!-- <thead> -->
-      <tr>
+      <!-- <tr>
         <td>Nama</td>
       </tr>
       <tr>
@@ -32,8 +31,8 @@
       <tr>
         <td>Provinsi</td>
       </tr>
-      <tr>
-        <td>Kabupaten</td>
+      <tr> 
+       <td>Kabupaten</td>
       </tr>
       <tr>
         <td>Kecamatan</td>
@@ -49,26 +48,26 @@
       </tr>       
 
       </tr>
-    <!-- </thead> -->
+    </thead> -->
     
     <p>
-      <!-- <tr> -->
-        <!-- Nama<br>
-        No RM<br>
-        NIK<br>
-        Alamat<br>
-        Tempat Lahir<br>
-        Provinsi<br>
-        Kabupaten<br>
-        Kecamatan<br>
-        Kelurahan<br>
-        RT<br>
-        RW<br> -->
-       <!-- </tr> -->
+      <tr>
+      <td>Nama</td>
+      <td>No RM</td>
+      <td>NIK</td>
+      <td>Alamat</td>
+      <td>Tempat Lahir</td>
+      <td>Provinsi</td>
+      <td>Kabupaten</td>
+      <td>Kecamatan</td>
+      <td>Kelurahan</td>
+      <td>RT</td>
+      <td>RW</td>
+       </tr> 
     </p>
     <tbody>
         <?php foreach($daftarpasien as $value){ ?>
-            <tr>
+         <tr>  
             <td>{{$value->nama}}</td>
             <td>{{$value->no_rm}}</td>
             <td>{{$value->nik}}</td>

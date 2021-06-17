@@ -140,7 +140,8 @@ class FrontController extends Controller
         }
         else{
             $data["reservasi"] = DB::table('reservasi')->join('pasien', 'reservasi.id_pasien', 'pasien.id')
-            ->select("reservasi.*","pasien.nama")
+            ->leftJoin('kunjungan', 'kunjungan.id_reservasi','reservasi.id')
+            ->select("reservasi.*","pasien.nama","kunjungan.id_penyakit")
             ->get(); 
         }
         return view('antrian', $data);
@@ -158,10 +159,14 @@ class FrontController extends Controller
             ->join('reservasi','kunjungan.id_reservasi','reservasi.id')
             ->join('pasien', 'reservasi.id_pasien','pasien.id')
             ->join('ref_penyakit_icd', 'kunjungan.id_penyakit','ref_penyakit_icd.id')
-            ->select("*")
+            ->join('ref_poli_bagian', 'reservasi.id_poli_bagian','ref_poli_bagian.id')
+            ->join('dokter', 'reservasi.id_dokter','dokter.id')->where('kunjungan.id_reservasi','<>',1)
+            ->select('kunjungan.*','pasien.*','reservasi.*','ref_penyakit_icd.*',
+            'ref_poli_bagian.nama as nama_penyakitpoli','ref_poli_bagian.id as id_poli',
+            'dokter.nama as nama_dokter', 'dokter.id as id_dokter','ref_penyakit_icd.id as id_penyakit')
             ->get();
         $data['kunjungan_poli'] = DB::table('ref_tindakan') ->select("*")->get();
-        
+        $data['perawat'] = DB::table('perawat') ->select("*")->get();
         return view('daftar_kunjungan',$data);
     }
 
@@ -179,6 +184,19 @@ class FrontController extends Controller
         $q = DB::table('reservasi')->insert($data);
         if ($q) {
             return redirect('/antrian')->with('success', "Berhasil!");
+        }
+    }
+
+    public function simpan_kunjungan_poli(Request $post)
+    {
+        $data = $post->except('_token','id_reservasi'); 
+        $data['created_by']= Auth::user()->name;
+        $data['edited_by']= Auth::user()->name;
+               $q = DB::table('kunjungan_poli')->insert($data);
+        if ($q) {
+            $a['status']=1;
+            DB::table('kunjungan')->where('id_reservasi',$post->id_reservasi)->update($a);
+            return redirect('/daftar_kunjungan')->with('success', "Berhasil!");
         }
     }
 

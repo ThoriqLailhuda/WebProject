@@ -39,6 +39,8 @@ Route::post('/simpan_reservasi_admin', [FrontController::class,'simpan_reservasi
 
 Route::post('/simpan_reservasi', [FrontController::class, 'simpan_reservasi']);
 
+Route::post('/simpan_kunjunganpoli', [FrontController::class, 'simpan_kunjungan_poli']);
+
 Route::get('/menu', [FrontController::class, 'menu']);
 
 Route::get('/daftar_kunjungan', [FrontController::class, 'daftar_kunjungan']);
