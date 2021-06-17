@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Perawat;
+use App\Models\Obat;
 
-class PerawatController extends Controller
+class ObatController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class PerawatController extends Controller
      */
     public function index()
     {
-        $dtPerawat = Perawat::all();
-        return view('perawat', compact('dtPerawat'));
+        $dtObat = Obat::all();
+        return view('obat', compact('dtObat'));
     }
 
     /**
@@ -25,7 +25,7 @@ class PerawatController extends Controller
      */
     public function create()
     {
-        return view('create_perawat');
+        return view('create_obat');
     }
 
     /**
@@ -37,16 +37,18 @@ class PerawatController extends Controller
     public function store(Request $request)
     {
         //dd($request->all());
-        Perawat::create([
+        Obat::create([
             'id' => $request -> id,
-            'nama' => $request -> nama,
-            'no_telp' => $request -> no_telp,
+            'id_periksa_poli' => $request -> id_periksa_poli,
+            'id_obat' => $request -> id_obat,
+            'harga' => $request -> harga,
+            'jml' => $request -> jml,
             'created_by' => $request -> created_by,
             'created_at' => $request -> created_at,
             'edited_by' => $request -> edited_by,
             'edited_at' => $request -> edited_at,
         ]);
-        return redirect('perawat');
+        return redirect('obat');
     }
 
     /**
@@ -68,8 +70,8 @@ class PerawatController extends Controller
      */
     public function edit($id)
     {
-        $prwt = Perawat::findorfail($id);
-        return view('edit_perawat', compact('prwt'));
+        $obt = Obat::findorfail($id);
+        return view('edit_obat', compact('obt'));
     }
 
     /**
@@ -81,9 +83,9 @@ class PerawatController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $prwt = Perawat::findorfail($id);
-        $prwt->update($request->all());
-        return redirect('perawat');
+        $obt = Obat::findorfail($id);
+        $obt->update($request->all());
+        return redirect('obat');
     }
 
     /**
@@ -94,8 +96,8 @@ class PerawatController extends Controller
      */
     public function destroy($id)
     {
-        $prwt = Perawat::findorfail($id);
-        $prwt->delete();
+        $obt = Obat::findorfail($id);
+        $obt->delete();
         return back();
     }
 }

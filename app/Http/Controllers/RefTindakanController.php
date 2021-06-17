@@ -67,7 +67,8 @@ class RefTindakanController extends Controller
      */
     public function edit($id)
     {
-        //
+        $refTndkn = Ref_tindakan::findorfail($id);
+        return view('edit_ref_tindakan', compact('refTndkn'));
     }
 
     /**
@@ -79,7 +80,9 @@ class RefTindakanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $refTndkn = Ref_tindakan::findorfail($id);
+        $refTndkn->update($request->all());
+        return redirect('ref_tindakan');
     }
 
     /**
@@ -90,6 +93,8 @@ class RefTindakanController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $refTndkn = Ref_tindakan::findorfail($id);
+        $refTndkn->delete();
+        return back();
     }
 }

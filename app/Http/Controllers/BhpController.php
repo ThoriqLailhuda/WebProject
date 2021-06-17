@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Perawat;
+use App\Models\Bhp;
 
-class PerawatController extends Controller
+class BhpController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class PerawatController extends Controller
      */
     public function index()
     {
-        $dtPerawat = Perawat::all();
-        return view('perawat', compact('dtPerawat'));
+        $dtBhp = Bhp::all();
+        return view('bhp', compact('dtBhp'));
     }
 
     /**
@@ -25,7 +25,7 @@ class PerawatController extends Controller
      */
     public function create()
     {
-        return view('create_perawat');
+        return view('create_bhp');
     }
 
     /**
@@ -37,16 +37,17 @@ class PerawatController extends Controller
     public function store(Request $request)
     {
         //dd($request->all());
-        Perawat::create([
+        Bhp::create([
             'id' => $request -> id,
-            'nama' => $request -> nama,
-            'no_telp' => $request -> no_telp,
+            'id_bhp' => $request -> id_bhp,
+            'harga' => $request -> harga,
+            'jml' => $request -> jml,
             'created_by' => $request -> created_by,
             'created_at' => $request -> created_at,
             'edited_by' => $request -> edited_by,
             'edited_at' => $request -> edited_at,
         ]);
-        return redirect('perawat');
+        return redirect('bhp');
     }
 
     /**
@@ -68,8 +69,8 @@ class PerawatController extends Controller
      */
     public function edit($id)
     {
-        $prwt = Perawat::findorfail($id);
-        return view('edit_perawat', compact('prwt'));
+        $bhp = Bhp::findorfail($id);
+        return view('edit_bhp', compact('bhp'));
     }
 
     /**
@@ -81,9 +82,9 @@ class PerawatController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $prwt = Perawat::findorfail($id);
-        $prwt->update($request->all());
-        return redirect('perawat');
+        $bhp = Bhp::findorfail($id);
+        $bhp->update($request->all());
+        return redirect('bhp');
     }
 
     /**
@@ -94,8 +95,8 @@ class PerawatController extends Controller
      */
     public function destroy($id)
     {
-        $prwt = Perawat::findorfail($id);
-        $prwt->delete();
+        $bhp = Bhp::findorfail($id);
+        $bhp->delete();
         return back();
     }
 }

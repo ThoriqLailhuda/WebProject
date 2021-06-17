@@ -69,7 +69,8 @@ class TindakanController extends Controller
      */
     public function edit($id)
     {
-        //
+        $tndkn = Tindakan::findorfail($id);
+        return view('edit_tindakan', compact('tndkn'));
     }
 
     /**
@@ -81,7 +82,9 @@ class TindakanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $tndkn = Tindakan::findorfail($id);
+        $tndkn->update($request->all());
+        return redirect('tindakan');
     }
 
     /**
@@ -92,6 +95,8 @@ class TindakanController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $tndkn = Tindakan::findorfail($id);
+        $tndkn->delete();
+        return back();
     }
 }

@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Perawat;
+use App\Models\Ref_penyakit_icd;
 
-class PerawatController extends Controller
+class RefPenyakitIcdController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class PerawatController extends Controller
      */
     public function index()
     {
-        $dtPerawat = Perawat::all();
-        return view('perawat', compact('dtPerawat'));
+        $dtRefPenyakitIcd = Ref_penyakit_icd::all();
+        return view('ref_penyakit_icd', compact('dtRefPenyakitIcd'));
     }
 
     /**
@@ -25,7 +25,7 @@ class PerawatController extends Controller
      */
     public function create()
     {
-        return view('create_perawat');
+        return view('create_ref_penyakit_icd');
     }
 
     /**
@@ -36,17 +36,16 @@ class PerawatController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request->all());
-        Perawat::create([
+        Ref_penyakit_icd::create([
             'id' => $request -> id,
+            'kode' => $request -> kode,
             'nama' => $request -> nama,
-            'no_telp' => $request -> no_telp,
             'created_by' => $request -> created_by,
             'created_at' => $request -> created_at,
             'edited_by' => $request -> edited_by,
             'edited_at' => $request -> edited_at,
         ]);
-        return redirect('perawat');
+        return redirect('ref_penyakit_icd');
     }
 
     /**
@@ -68,8 +67,8 @@ class PerawatController extends Controller
      */
     public function edit($id)
     {
-        $prwt = Perawat::findorfail($id);
-        return view('edit_perawat', compact('prwt'));
+        $refPnyktIcd = Ref_penyakit_icd::findorfail($id);
+        return view('edit_ref_penyakit_icd', compact('refPnyktIcd'));
     }
 
     /**
@@ -81,9 +80,9 @@ class PerawatController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $prwt = Perawat::findorfail($id);
-        $prwt->update($request->all());
-        return redirect('perawat');
+        $refPnyktIcd = Ref_penyakit_icd::findorfail($id);
+        $refPnyktIcd->update($request->all());
+        return redirect('ref_penyakit_icd');
     }
 
     /**
@@ -94,8 +93,8 @@ class PerawatController extends Controller
      */
     public function destroy($id)
     {
-        $prwt = Perawat::findorfail($id);
-        $prwt->delete();
+        $refPnyktIcd = Ref_penyakit_icd::findorfail($id);
+        $refPnyktIcd->delete();
         return back();
     }
 }

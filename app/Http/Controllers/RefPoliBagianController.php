@@ -68,7 +68,8 @@ class RefPoliBagianController extends Controller
      */
     public function edit($id)
     {
-        //
+        $refPlBgn = Ref_poli_bagian::findorfail($id);
+        return view('edit_ref_poli_bagian', compact('refPlBgn'));
     }
 
     /**
@@ -80,7 +81,9 @@ class RefPoliBagianController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $refPlBgn = Ref_poli_bagian::findorfail($id);
+        $refPlBgn->update($request->all());
+        return redirect('ref_poli_bagian');
     }
 
     /**
@@ -91,6 +94,8 @@ class RefPoliBagianController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $refPlBgn = Ref_poli_bagian::findorfail($id);
+        $refPlBgn->delete();
+        return back();
     }
 }

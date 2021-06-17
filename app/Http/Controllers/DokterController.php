@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Perawat;
+use App\Models\Dokter;
 
-class PerawatController extends Controller
+class DokterController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class PerawatController extends Controller
      */
     public function index()
     {
-        $dtPerawat = Perawat::all();
-        return view('perawat', compact('dtPerawat'));
+        $dtDokter = Dokter::all();
+        return view('dokter', compact('dtDokter'));
     }
 
     /**
@@ -25,7 +25,7 @@ class PerawatController extends Controller
      */
     public function create()
     {
-        return view('create_perawat');
+        return view('create_dokter');
     }
 
     /**
@@ -37,16 +37,18 @@ class PerawatController extends Controller
     public function store(Request $request)
     {
         //dd($request->all());
-        Perawat::create([
+        Dokter::create([
             'id' => $request -> id,
             'nama' => $request -> nama,
+            'id_poli_bagian' => $request -> id_poli_bagian,
             'no_telp' => $request -> no_telp,
+            'harga' => $request -> harga,
             'created_by' => $request -> created_by,
             'created_at' => $request -> created_at,
             'edited_by' => $request -> edited_by,
             'edited_at' => $request -> edited_at,
         ]);
-        return redirect('perawat');
+        return redirect('dokter');
     }
 
     /**
@@ -68,8 +70,8 @@ class PerawatController extends Controller
      */
     public function edit($id)
     {
-        $prwt = Perawat::findorfail($id);
-        return view('edit_perawat', compact('prwt'));
+        $dktr = Dokter::findorfail($id);
+        return view('edit_dokter', compact('dktr'));
     }
 
     /**
@@ -81,9 +83,9 @@ class PerawatController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $prwt = Perawat::findorfail($id);
-        $prwt->update($request->all());
-        return redirect('perawat');
+        $dktr = Dokter::findorfail($id);
+        $dktr->update($request->all());
+        return redirect('dokter');
     }
 
     /**
@@ -94,8 +96,8 @@ class PerawatController extends Controller
      */
     public function destroy($id)
     {
-        $prwt = Perawat::findorfail($id);
-        $prwt->delete();
+        $dktr = Dokter::findorfail($id);
+        $dktr->delete();
         return back();
     }
 }

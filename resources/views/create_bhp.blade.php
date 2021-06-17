@@ -4,14 +4,16 @@
 
 <div class="container">
 
-<form action="{{route('simpan_perawat')}}" method="post" required>
+<form action="{{route('simpan_bhp')}}" method="post" required>
                                 {{csrf_field()}}
                                 Id
                                 <input type="text" class="form-control" name="id" required>
-                                Nama
-                                <input type="text" class="form-control" name="nama" required>
-                                Nomor Telepon
-                                <input type="text" class="form-control" name="no_telp" required>
+                                Id Bhp
+                                <input type="text" class="form-control" name="id_bhp" required>
+                                Harga
+                                <input type="text" class="form-control" name="harga" required>
+                                Jumlah
+                                <input type="text" class="form-control" name="jml" required>
                                 Created by 
                                 <input type="text" class="form-control" name="created_by" required>
                                 Created at
