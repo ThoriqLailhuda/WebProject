@@ -35,7 +35,8 @@ Route::post('/simpan_reservasi', [FrontController::class, 'simpan_reservasi']);
 
 Route::get('/menu', [FrontController::class, 'menu']);
 
-Route::get('/antrian', [FrontController::class, 'antrian']);
+Route::get('/daftar_kunjungan', [FrontController::class, 'daftar_kunjungan']);
+Route::get('/daftar_kunjunganpoli', [FrontController::class, 'daftar_kunjunganpoli']);
 
 Route::get('/daftarpasien', [FrontController::class, 'daftarpasien']);
 
@@ -44,6 +45,7 @@ Route::get('/edit_pasien/{id}', [FrontController::class, 'editpasien']);
 Route::post('/update_pasien', [FrontController::class, 'Update_pasien']);
 
 Route::post('/simpan_kunjungan', [FrontController::class, 'simpan_kunjungan']);
+Route::post('/simpan_kunjungan_poli', [FrontController::class, 'simpan_kunjungan_poli']);
 
 
 Route::get('/delete_pasien/{id}', [FrontController::class, 'deletepasien']);

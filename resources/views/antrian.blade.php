@@ -28,7 +28,10 @@
       </tr>
     </thead>
     <tbody>
-        <?php $nomer=1; foreach($reservasi as $value){ ?>
+        <?php $nomer=1; foreach($reservasi as $value){ 
+            if ($value->id_penyakit > 0) {
+           
+        ?>
             <tr>
             <td style="text-align:center">{{$nomer}}</td>
             <td style="text-align:center">{{$value->nama}}</td>
@@ -47,7 +50,7 @@
                 }
            }?>
             </tr>
-        <?php $nomer++; } ?>
+        <?php $nomer++;} } ?>
     </tbody>
   </table>
 </div>
@@ -140,10 +143,6 @@ function penyakitkunjungan(){
               for (i = 0; i < response.length; i++){
                 console.log(response[i]['indonesian_name']);
                 var hasil = document.createElement("P");
-                /*hasil.onclick = function(event) 
-                {
-                  myFunction(response[i]['indonesian_name']);
-                }*/
                 hasil.innerHTML = response[i]['indonesian_name'];
                 hasil.setAttribute("onclick", "myFunction("+response[i]['id']+",'"+response[i]['indonesian_name']+"')");
                 document.getElementById('hasil').appendChild(hasil);

@@ -1,7 +1,10 @@
-<form action="{{url('simpan_kunjungan')}}" method="post" required>
+@extends('template.sidebar')
+
+@section('content')
+form action="{{url('simpan_kunjungan')}}" method="post" required>
                                 {{csrf_field()}}
-                                nomer  reservasi
-                                <input type="text" class="form-control" name="id_reservasi" id="id_reservasi" required>
+                                periksa poli
+                                <input type="text" class="form-control" name="id_reservasi" id="id_periksa_poli" required>
                                 nama pasien
                                 <input type="text" class="form-control" name="id_pasien" id="id_pasien" required>
                                 id Penyakit 
@@ -31,3 +34,5 @@
                                 </form>
 
     
+
+@endsection

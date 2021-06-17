@@ -133,8 +133,9 @@ class FrontController extends Controller
         $data["penyakit"] = DB::table('ref_penyakit_icd')->select("*")->get();
         $user = Auth::user(); 
         if ($user->hasRole('admin')) {
-            $data["reservasi"] = DB::table('reservasi')->join('pasien', 'reservasi.id_pasien', 'pasien.id')
-            ->select("reservasi.*","pasien.nama")
+            $data["reservasi"] = DB::table('reservasi')->join('pasien', 'reservasi.id_pasien','pasien.id')
+            ->leftJoin('kunjungan', 'kunjungan.id_reservasi','reservasi.id')
+            ->select("reservasi.*","pasien.nama","kunjungan.id_penyakit")
             ->get();
         }
         else{
@@ -150,8 +151,21 @@ class FrontController extends Controller
         $data["reservasi_polibagian"] = DB::table('ref_poli_bagian')->select("*")->get();
         $data["reservasi_dokter"] = DB::table('dokter')->select("*")->get();
         return view('reservasi_admin',$data);
-
     }
+
+    public function daftar_kunjungan (){
+        $data["kunjungan"] = DB::table('kunjungan')
+            ->join('reservasi','kunjungan.id_reservasi','reservasi.id')
+            ->join('pasien', 'reservasi.id_pasien','pasien.id')
+            ->join('ref_penyakit_icd', 'kunjungan.id_penyakit','ref_penyakit_icd.id')
+            ->select("*")
+            ->get();
+        $data['kunjungan_poli'] = DB::table('ref_tindakan') ->select("*")->get();
+        
+        return view('daftar_kunjungan',$data);
+    }
+
+    
 
 
     public function reservasipasien()
@@ -183,7 +197,17 @@ class FrontController extends Controller
         //dd($data);
         $q= DB::table('kunjungan')->insert($data);
         if ($q) {
-            return redirect('lihat_antrian_admin')->with('success', "Berhasil!");
+            return redirect('antrian');
+        }
+    }
+
+    public function simpan_kunjunganpoli(Request $post)
+    {
+        $data = $post->except('_token');
+        //dd($data);
+        $q= DB::table('form_poli')->insert($data);
+        if ($q) {
+            return redirect('');
         }
     }
     
