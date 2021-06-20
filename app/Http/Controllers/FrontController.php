@@ -160,14 +160,25 @@ class FrontController extends Controller
             ->join('pasien', 'reservasi.id_pasien','pasien.id')
             ->join('ref_penyakit_icd', 'kunjungan.id_penyakit','ref_penyakit_icd.id')
             ->join('ref_poli_bagian', 'reservasi.id_poli_bagian','ref_poli_bagian.id')
-            ->join('dokter', 'reservasi.id_dokter','dokter.id')->where('kunjungan.id_reservasi','<>',1)
-            ->select('kunjungan.*','pasien.*','reservasi.*','ref_penyakit_icd.*',
-            'ref_poli_bagian.nama as nama_penyakitpoli','ref_poli_bagian.id as id_poli',
+            ->join('dokter', 'reservasi.id_dokter','dokter.id')
+            ->where('kunjungan.status','<>',1)
+            ->select('kunjungan.*','pasien.*','reservasi.*','ref_penyakit_icd.*','kunjungan.id as id_kunjungan',
+            'ref_poli_bagian.nama as nama_penyakitpoli','ref_poli_bagian.id as id_poli','ref_poli_bagian.harga_pendaftaran',
             'dokter.nama as nama_dokter', 'dokter.id as id_dokter','ref_penyakit_icd.id as id_penyakit')
             ->get();
-        $data['kunjungan_poli'] = DB::table('ref_tindakan') ->select("*")->get();
+        $data['kunjungan_poli'] = DB::table('kunjungan') ->select("*")->get();
         $data['perawat'] = DB::table('perawat') ->select("*")->get();
         return view('daftar_kunjungan',$data);
+    }
+    public function daftar_kunjunganpoli(){
+        $data["kunjungan_poli"] = DB::table('kunjungan_poli')
+        ->join('ref_poli_bagian', 'kunjungan_poli.id_poli_bagian','ref_poli_bagian.id')
+        ->join('dokter', 'kunjungan_poli.id_dokter_pemeriksa','dokter.id')
+        ->join('perawat', 'kunjungan_poli.id_perawat_pemeriksa','perawat.id')
+        ->join('ref_penyakit_icd', 'kunjungan_poli.id_penyakit','ref_penyakit_icd.id')
+        ->join('ref_tindakan', 'kunjungan_poli.id_periksa','ref_tindakan.id')
+        ->select("*")->get();
+      return view('daftar_kunjunganpoli',$data );  
     }
 
     

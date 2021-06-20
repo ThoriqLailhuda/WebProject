@@ -32,7 +32,7 @@
       </tr>
     </thead>
     <tbody>
-        <?php $nomer=1; foreach($kunjungan as $value) { ?>
+        <?php $nomer=1; foreach($kunjungan as $value) {?>
             <tr>
             <td style="text-align:center">{{$nomer}}</td>
             <td style="text-align:center">{{$value->nama}}</td>
@@ -45,7 +45,7 @@
               if($user->hasRole('admin_poli')){
                   $parse = $value->id.',"'.$value->nama.'","'.$value->tanggal_rencana_datang.'",'.$value->int_telp.','.$value->id_pasien.',"'
                   .$value->nama_penyakitpoli.'","'.$value->nama_dokter.'","'.$value->indonesian_name.'",' .$value->id_poli .','
-                  .$value->id_dokter.','.$value->id_penyakit.','.$value->id_reservasi ;
+                  .$value->id_dokter.','.$value->id_penyakit.','.$value->id_reservasi.','.$value->id_kunjungan.','.$value->harga_pendaftaran ;
                   echo " <td><button class='btn btn-success' onclick = 'kunjungan_poli(".$parse.")'>isi kunjungan POLI </button> </td>  ";             
            }?>        
             </tr>
@@ -67,7 +67,8 @@
 
 
 <script>
-function kunjungan_poli(id , nama ,tanggalpemesanan , nomerhp,id_pasien, nama_penyakitpoli,nama_dokter,indonesian_name, id_poli ,id_dokter,id_penyakit, id_reservasi){
+function kunjungan_poli(id , nama ,tanggalpemesanan , nomerhp,id_pasien, nama_penyakitpoli,nama_dokter,indonesian_name, 
+id_poli ,id_dokter,id_penyakit, id_reservasi,id_kunjungan,harga_pendaftaran){
   document.getElementById("nama_poli").value = nama_penyakitpoli;
   document.getElementById("id_poli").value = id_poli;
   document.getElementById("id_dokter").value = id_dokter;
@@ -75,6 +76,10 @@ function kunjungan_poli(id , nama ,tanggalpemesanan , nomerhp,id_pasien, nama_pe
   document.getElementById("nama_dokter").value = nama_dokter;
   document.getElementById("nama_penyakit").value = indonesian_name;
   document.getElementById("id_reservasi").value = id_reservasi;
+  document.getElementById("id_periksa").value = id_kunjungan;
+  document.getElementById("biaya_pendaftaran").value = harga_pendaftaran;
+  
+
   $('#MyModal').modal('show');
 }
 </script>

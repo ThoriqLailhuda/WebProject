@@ -85,6 +85,7 @@
                     <a class="list-group-item list-group-item-action bg-light" href="{{url('/tindakan')}}">Tindakan</a>
                     <a class="list-group-item list-group-item-action bg-light" href="{{url('/ref_tindakan')}}">Referensi Tindakan</a>
                     <a class="list-group-item list-group-item-action bg-light" href="{{url('/daftar_kunjungan')}}">Daftar Kunjungan</a>
+                    <a class="list-group-item list-group-item-action bg-light" href="{{url('/daftar_kunjunganpoli')}}">daftar kunjungan poli</a>
                 <?php } else if ($user->hasRole('kasir')) { ?>
                     <a class="list-group-item list-group-item-action bg-light" href="{{url('/antrian')}}">Lihat Antrian</a>
                     <a class="list-group-item list-group-item-action bg-light" href="{{url('/daftarpasien')}}">Lihat Data</a>
