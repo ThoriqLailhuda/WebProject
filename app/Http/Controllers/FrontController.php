@@ -175,26 +175,58 @@ class FrontController extends Controller
         ->join('ref_poli_bagian', 'kunjungan_poli.id_poli_bagian','ref_poli_bagian.id')
         ->join('dokter', 'kunjungan_poli.id_dokter_pemeriksa','dokter.id')
         ->join('perawat', 'kunjungan_poli.id_perawat_pemeriksa','perawat.id')
+        ->leftJoin('tindakan','kunjungan_poli.id_periksa','tindakan.id_periksa_poli')
         ->join('ref_penyakit_icd', 'kunjungan_poli.id_penyakit','ref_penyakit_icd.id')
         ->join('ref_tindakan', 'kunjungan_poli.id_periksa','ref_tindakan.id')
-        ->select("*")->get();
+        ->select("*")
+        ->get();
+        $data['tindakan'] = DB::table('ref_tindakan') ->select("*")->get();
+       
       return view('daftar_kunjunganpoli',$data );  
+    }
+    public function daftar_tindakan()
+    {   
+        
+        $data['tindakan'] = DB::table('tindakan')
+         ->leftJoin('obat','obat.id_periksa_poli','tindakan.id_periksa_poli')
+         ->select("*")->get();
+        $data['ref_obat'] = DB::table('ref_obat') ->select("*")->get();
+        return view('daftar_tindakan',$data );  
     }
 
     
-
-
     public function reservasipasien()
     {
         $data["reservasi"] = DB::table('pasien')->select("*")->where('id_user', Auth::user()->id)->get();
         return view('reservasi', $data);
     }
+
+
     public function simpan_reservasi(Request $post)
     {
         $data = $post->except('_token');
         $q = DB::table('reservasi')->insert($data);
         if ($q) {
             return redirect('/antrian')->with('success', "Berhasil!");
+        }
+    }
+
+    public function save_obat (Request $post)
+    {
+
+        $data = $post->except('_token');
+        $q = DB::table('obat')->insert($data);
+        if ($q) {
+            return redirect('/daftar_tindakan')->with('success', "Berhasil!");
+        }
+    }
+
+    public function save_tindakan(Request $post)
+    {
+        $data = $post->except('_token');
+        $q = DB::table('tindakan')->insert($data);
+        if ($q) {
+            return redirect('/daftar_kunjunganpoli')->with('success', "Berhasil!");
         }
     }
 
