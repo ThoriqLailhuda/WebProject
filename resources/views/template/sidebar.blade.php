@@ -31,17 +31,25 @@
         #sidebar {
             position: fixed;
             width: 240px;
-            height: 100%;
+            top: 0;
+            left: -240px;
+            bottom: 0;
             z-index: 1;
-            overflow-y: scroll; 
+            transition: 200ms;
+            overflow-y: scroll;
         }
 
         #sidebar::-webkit-scrollbar {
             display: none;
         }
 
-        #content {
-            margin-left: 200px;
+        #navtoggle {
+            position: absolute;
+            top: 0;
+            left: 0;
+            margin: 10px;
+            transition: 200ms;
+            z-index: 2;
         }
     </style>
 </head>
@@ -55,7 +63,7 @@
                     {{ __('Klinik Amanda') }}
                 </a>
             </div>
-            <div class="list-group list-group-flush">
+            <div class="list-group list-group-flush" id="nav-list">
                 <?php $user = Auth::user(); ?>
                 <?php if ($user->hasRole('admin')) { ?>
                     <a class="list-group-item list-group-item-action bg-light" href="{{url('/daftarpasien')}}">Data Pasien</a>
@@ -103,6 +111,8 @@
                 <?php  } ?>
             </div>
         </div>
+        <!-- Navbar toggle button -->
+        <button type="button" class="btn btn-dark" id="navtoggle" onmousedown="navToggle()">></button>
         <!-- Page Content-->
         <div class="flex-fill" id="content">
             <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
@@ -135,11 +145,30 @@
                 </div>
             </nav>
 
-            <main class="py-4">
+            <main class="py-4" id="main-content">
                 @yield('content')
             </main>
         </div>
     </div>
+    <script>
+        // Nav toggler
+        function navToggle() {
+            const sidebar = document.getElementById('sidebar');
+            const toggler = document.getElementById('navtoggle');
+
+            // Sidebar display menjadi block
+            // Button berpindah ke kanan dan ganti text content
+            if (toggler.textContent == ">") {
+                sidebar.style.transform = "translateX(240px)";
+                toggler.style.transform = "translateX(240px)";
+                toggler.textContent = "<";
+            } else {
+                sidebar.style.transform = "translateX(0)";
+                toggler.style.transform = "translateX(0)";
+                toggler.textContent = ">";
+            }
+        }
+    </script>
 </body>
 
 </html>
