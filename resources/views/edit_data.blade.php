@@ -7,7 +7,7 @@
                
                 Nama 
                     <input type="text" class="form-control" name="nama" value="{{$daftarpasien[0]->nama}}" required>
-                No_Rm
+                No RM
                     <input type="number" class="form-control" name="no_rm" value="{{$daftarpasien[0]->no_rm}}"required>
                 NIK
                     <input type="number" class="form-control" name="nik" value="{{$daftarpasien[0]->nik}}"required>
@@ -15,7 +15,7 @@
                     <input type="text" class="form-control" name="alamat" value="{{$daftarpasien[0]->alamat}}"required>
                 Tempat Lahir
                     <input type="text" class="form-control" name="tempat_lahir" value="{{$daftarpasien[0]->tempat_lahir}}"required>
-                Tanggal lahir
+                Tanggal Lahir
                     <input type="date" class="form-control" name="tgl_lahir" value="{{$daftarpasien[0]->tgl_lahir}}"required>
                 RT
                     <input type="number" class="form-control" name="rt" value="{{$daftarpasien[0]->rt}}"required>

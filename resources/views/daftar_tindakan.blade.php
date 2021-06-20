@@ -6,10 +6,10 @@
     <tr>
    
         <th style="text-align:center" width="20px">No</th>            
-        <th style="text-align:center" width="300px">id_periksa_poli</th>
-        <th style="text-align:center" width="200px">id_tindaka</th>
-        <th style="text-align:center" width="200px">harga </th>
-        <th style="text-align:center" width="200px">jml</th>
+        <th style="text-align:center" width="300px">Id Periksa Poli</th>
+        <th style="text-align:center" width="200px">Id Tindakan</th>
+        <th style="text-align:center" width="200px">Harga</th>
+        <th style="text-align:center" width="200px">Jumlah</th>
 
         <?php 
         $user = Auth::user();          

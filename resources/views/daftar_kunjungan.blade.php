@@ -18,11 +18,11 @@
       <tr>
         <th style="text-align:center" width="20px">No</th>            
         <th style="text-align:center" width="300px">Nama</th>
-        <th style="text-align:center" width="200px">penyakit</th>
-        <th style="text-align:center" width="200px">Tekanan darah </th>
-        <th style="text-align:center" width="200px">Denyut nadi</th>
+        <th style="text-align:center" width="200px">Penyakit</th>
+        <th style="text-align:center" width="200px">Tekanan Darah </th>
+        <th style="text-align:center" width="200px">Denyut Nadi</th>
         <th style="text-align:center" width="200px">Usia Bulan</th>
-        <th style="text-align:center" width="200px">Usia hari</th>  
+        <th style="text-align:center" width="200px">Usia Hari</th>  
         <?php 
         $user = Auth::user();          
             if($user->hasRole('admin')){
