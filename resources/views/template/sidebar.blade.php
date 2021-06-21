@@ -96,6 +96,7 @@
                     <a class="list-group-item list-group-item-action bg-light" href="{{url('/daftar_kunjungan')}}">Daftar Kunjungan</a>
                     <a class="list-group-item list-group-item-action bg-light" href="{{url('/daftar_kunjunganpoli')}}">daftar kunjungan poli</a>
                     <a class="list-group-item list-group-item-action bg-light" href="{{url('daftar_tindakan')}}">daftar Tindakan</a>
+                    <a class="list-group-item list-group-item-action bg-light" href="{{url('/hasil_tindakan')}}">Pasien Sudah Di periksa </a>
                 <?php } else if ($user->hasRole('kasir')) { ?>
                     <a class="list-group-item list-group-item-action bg-light" href="{{url('/antrian')}}">Lihat Antrian</a>
                     <a class="list-group-item list-group-item-action bg-light" href="{{url('/daftarpasien')}}">Lihat Data</a>
@@ -106,6 +107,7 @@
                     <a class="list-group-item list-group-item-action bg-light" href="{{url('/ref_obat')}}">Referensi Obat</a>
                     <a class="list-group-item list-group-item-action bg-light" href="{{url('/ref_penyakit_icd')}}">Referensi Penyakit ICD</a>
                     <a class="list-group-item list-group-item-action bg-light" href="{{url('/ref_bhp')}}">Refrensi BHP</a>
+                    <a class="list-group-item list-group-item-action bg-light" href="{{url('/pembayaran')}}">Pembayaranan</a>
                 <?php } else if ($user->hasRole('user')) { ?>
                     <a class="list-group-item list-group-item-action bg-light m-0" href="{{url('/home')}}">Home</a>
                     <a class="list-group-item list-group-item-action bg-light" href="{{url('/daftarpasien')}}">Data Diri</a>

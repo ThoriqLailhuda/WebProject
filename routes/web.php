@@ -46,6 +46,13 @@ Route::get('/menu', [FrontController::class, 'menu']);
 Route::get('/daftar_kunjungan', [FrontController::class, 'daftar_kunjungan']);
 Route::get('/daftar_kunjunganpoli', [FrontController::class, 'daftar_kunjunganpoli']);
 
+Route::get('/pembayaran', [FrontController::class, 'pembayaran']);
+Route::get('/cetak_pembayaran/{id}', [FrontController::class, 'cetak_pembayaran']);
+Route::get('/proses_bayar/{id}', [FrontController::class, 'proses_bayar']);
+
+Route::get('/hasil_tindakan', [FrontController::class, 'hasil_tindakan']);
+
+
 Route::get('/daftarpasien', [FrontController::class, 'daftarpasien']);
 
 Route::get('/edit_pasien/{id}', [FrontController::class, 'editpasien']);
@@ -56,8 +63,10 @@ Route::post('/simpan_kunjungan', [FrontController::class, 'simpan_kunjungan']);
 Route::post('/simpan_kunjungan_poli', [FrontController::class, 'simpan_kunjungan_poli']);
 Route::post('/save_tindakan', [FrontController::class, 'save_tindakan']);
 Route::post('/save_obat', [FrontController::class, 'save_obat']);
+Route::post('/save_bhp', [FrontController::class, 'save_bhp']);
 
 Route::get('/delete_pasien/{id}', [FrontController::class, 'deletepasien']);
+Route::get('/selesai/{id}', [FrontController::class, 'selesai']);
 
 Route::get('/reservasi_pasien', [FrontController::class, 'reservasipasien']);
 Route::get('/daftar_tindakan', [FrontController::class, 'daftar_tindakan']);

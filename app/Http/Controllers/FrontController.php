@@ -125,6 +125,24 @@ class FrontController extends Controller
 
     } 
 
+    public function selesai($id){
+        $data['selesai'] = "selesai";
+        DB::table('kunjungan')->where('id',$id)->update($data);
+        DB::table('tindakan')->where('id_periksa_poli',$id)->update($data);
+        return redirect()->back();
+    }
+
+    public function hasil_tindakan(){
+        $data["tindakan"] = DB::table('tindakan')
+        ->join('kunjungan_poli', 'tindakan.id_periksa_poli','kunjungan_poli.id')
+        ->join('ref_poli_bagian', 'kunjungan_poli.id_poli_bagian','ref_poli_bagian.id')
+        ->join('ref_tindakan', 'tindakan.id_tindakan','ref_tindakan.id')
+        ->select("*","ref_poli_bagian.nama as nama_poli","ref_tindakan.nama as nama_tindakan","kunjungan_poli.id as id_selesai")->get(); 
+        $data['ref_bhp'] = DB::table('ref_bhp')->select("*")->get();
+        return view('hasil_tindakan', $data) ;
+
+    }
+
     public function antrian()
     {
         //$data["reservasi"] = DB::table('pasien')->select("*")->get();
@@ -174,6 +192,40 @@ class FrontController extends Controller
         $data['perawat'] = DB::table('perawat') ->select("*")->get();
         return view('daftar_kunjungan',$data);
     }
+
+    public function pembayaran(){
+        $data["kunjungan"] = DB::table('kunjungan')
+            ->join('reservasi','kunjungan.id_reservasi','reservasi.id')
+            ->join('pasien', 'reservasi.id_pasien','pasien.id')
+            ->join('ref_penyakit_icd', 'kunjungan.id_penyakit','ref_penyakit_icd.id')
+            ->join('ref_poli_bagian', 'reservasi.id_poli_bagian','ref_poli_bagian.id')
+            ->join('dokter', 'reservasi.id_dokter','dokter.id')
+            ->where("kunjungan.selesai","selesai")
+            ->select('kunjungan.*','pasien.*','reservasi.*','ref_penyakit_icd.*','kunjungan.id as id_kunjungan',
+            'ref_poli_bagian.nama as nama_penyakitpoli','ref_poli_bagian.id as id_poli','ref_poli_bagian.harga_pendaftaran',
+            'dokter.nama as nama_dokter', 'dokter.id as id_dokter','ref_penyakit_icd.id as id_penyakit','kunjungan.id as id_pembayaran')
+            ->get();
+        return view('pembayaran',$data);   
+    }
+
+    public function cetak_pembayaran($id){
+        $data["kunjungan_poli"] = DB::table('kunjungan_poli')->where('id_periksa',$id)->select("*")->get();
+        $data["tindakan"] = DB::table('tindakan')->where('id_periksa_poli',$id)->select("*")->get();
+        $data["obat"] = DB::table('obat')->where('id_periksa_poli',$id)->select("*")->get();
+        $data['jumlah_pembayaran'] = $data["kunjungan_poli"][0]->biaya_pendaftaran + $data["tindakan"][0]->jml +$data["obat"][0]->jml;
+        $data['id_bayar'] = $id;
+        return view('cetak_pembayaran',$data); 
+    }
+
+    public function proses_bayar($id){
+        $data['bayar'] = 'terbayar';
+        $q = DB::table('kunjungan')->where("id",$id)->update($data);
+        if ($q) {
+            return redirect('/pembayaran')->with('success', "Berhasil!");
+        }
+
+    }
+    
     public function daftar_kunjunganpoli(){
         $data["kunjungan_poli"] = DB::table('kunjungan_poli')
         ->join('ref_poli_bagian', 'kunjungan_poli.id_poli_bagian','ref_poli_bagian.id')
@@ -182,6 +234,7 @@ class FrontController extends Controller
         ->leftJoin('tindakan','kunjungan_poli.id_periksa','tindakan.id_periksa_poli')
         ->join('ref_penyakit_icd', 'kunjungan_poli.id_penyakit','ref_penyakit_icd.id')
         ->join('ref_tindakan', 'kunjungan_poli.id_periksa','ref_tindakan.id')
+        ->where('ref_poli_bagian.id_user',Auth::user()->id)
         ->select("*")
         ->get();
         $data['tindakan'] = DB::table('ref_tindakan') ->select("*")->get();
@@ -190,10 +243,9 @@ class FrontController extends Controller
     }
     public function daftar_tindakan()
     {   
-        
         $data['tindakan'] = DB::table('tindakan')
          ->leftJoin('obat','obat.id_periksa_poli','tindakan.id_periksa_poli')
-         ->select("*")->get();
+         ->select("*",'tindakan.id_periksa_poli as id_periksa_poli','tindakan.harga as harga','tindakan.jml as jml')->get();
         $data['ref_obat'] = DB::table('ref_obat') ->select("*")->get();
         return view('daftar_tindakan',$data );  
     }
@@ -224,6 +276,17 @@ class FrontController extends Controller
             return redirect('/daftar_tindakan')->with('success', "Berhasil!");
         }
     }
+
+    public function save_bhp (Request $post)
+    {
+
+        $data = $post->except('_token');
+        $q = DB::table('bhp')->insert($data);
+        if ($q) {
+            return redirect('/hasil_tindakan')->with('success', "Berhasil!");
+        }
+    }
+
 
     public function save_tindakan(Request $post)
     {
