@@ -29,6 +29,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/contactus', [FrontController::class, 'contactus']);
+
+Route::get('/about', [FrontController::class, 'about']);
+
 Route::get('/antrian', [FrontController::class, 'antrian']);
 
 Route::get('/home_admin', [FrontController::class, 'home_admin'])->name('home_admin');

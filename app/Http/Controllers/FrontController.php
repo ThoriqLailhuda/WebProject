@@ -12,6 +12,10 @@ class FrontController extends Controller
     {
         return view('about');
     }
+    public function contactus()
+    {
+        return view('contactus');
+    }
 
     public function home_admin()
     {
