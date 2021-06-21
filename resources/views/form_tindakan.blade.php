@@ -1,6 +1,6 @@
 <form action="{{url('save_tindakan')}}" method="post" required>
                                 {{csrf_field()}}
-                                Periksa POLI
+                                Periksa Poli
                                 <input type="text" name="id_periksa_poli" class="form-control" id="id_periksa_poli" readonly >
                                 Tindakan
                                 <select name="id_tindakan" class="form-control" id="tindakan1" onchange="biaya_tindakan('tindakan1','harga1')">
@@ -11,11 +11,11 @@
                                 </select>
                                 <div id="tambah" ></div>
                                 <button type="button" onclick="tambah_tindakan()"> tambah</button><br>
-                                harga
+                                Harga
                                 <input type="text" class="form-control" id="harga1"  name ="harga" required>
                                 <div id="tambah2" ></div>
                                
-                                jumlah 
+                                Jumlah 
                                 <input type="text" class="form-control" name="jml" id="jml"  required>
                                
                                 <input type="SUBMIT" class="btn btn-primary">   

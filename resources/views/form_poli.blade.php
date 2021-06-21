@@ -17,7 +17,7 @@
                                     <option value="{{$input->id}}"> {{$input->nama}} </option>
                                     <?php } ?>
                                 </select>
-                                penyakit
+                                Penyakit
                                 <input type="text" class="form-control" id='nama_penyakit' required>
                                 <input type="hidden" class="form-control" name="id_penyakit" id='id_penyakit' required>
                                 <input type='hidden' name='id_reservasi' id="id_reservasi">

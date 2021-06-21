@@ -6,10 +6,10 @@
     <tr>
    
         <th style="text-align:center" width="20px">No</th>            
-        <th style="text-align:center" width="300px">id_pemeriksan</th>
-        <th style="text-align:center" width="200px">biaya_pendaftaran</th>
-        <th style="text-align:center" width="200px">id_poli_bagian </th>
-        <th style="text-align:center" width="200px">id_perawat_pemeriksa</th>
+        <th style="text-align:center" width="300px">Id Pemeriksan</th>
+        <th style="text-align:center" width="200px">Biaya Pendaftaran</th>
+        <th style="text-align:center" width="200px">Id Poli Bagian </th>
+        <th style="text-align:center" width="200px">Id Perawat Pemeriksa</th>
 
         <?php 
         $user = Auth::user();          

@@ -1,6 +1,6 @@
 <form action="{{url('simpan_kunjungan')}}" method="post" required>
                                 {{csrf_field()}}
-                                nomer  reservasi
+                                Nomor Reservasi
                                 <input type="text" class="form-control" name="id_reservasi" id="id_reservasi" required>
                                 nama pasien
                                 <input type="text" class="form-control"  id="nama_pasien" required>
@@ -19,11 +19,11 @@
                                 <input type="text" class="form-control" name="usia_hari" id="usia_hari" required>
                                 Create by 
                                 <input type="text" class="form-control" name="created_by" required>
-                                Create add
+                                Created at
                                 <input type="text" class="form-control" name="created_at" >
                                 Edited by
                                 <input type="text" class="form-control" name="edited_by" required>
-                                Edited Add
+                                Edited at
                                 <input type="text" class="form-control" name="edited_at" >
 
                                 <br>

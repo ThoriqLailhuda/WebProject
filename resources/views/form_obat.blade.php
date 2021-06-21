@@ -1,8 +1,8 @@
 <form action="{{url('save_obat')}}" method="post" required>
                                 {{csrf_field()}}
-                                Periksa POLI
+                                Periksa Poli
                                 <input type="text" name="id_periksa_poli" class="form-control" id="id_periksa_poli" readonly >
-                                obat
+                                Obat
                                 <select name="id_obat" class="form-control" id="id_obat1" onchange="biaya_tindakan('id_obat1','harga1')">
                                 <option selected disabled> --  Pilih Tindakan --  </option>
                                     <?php foreach($ref_obat as $input) { ?>
@@ -11,11 +11,11 @@
                                 </select>
                                 <div id="tambah" ></div>
                                 <button type="button" onclick="tambah_tindakan()"> tambah</button><br>
-                                harga
+                                Harga
                                 <input type="text" class="form-control" id="harga1"  name ="harga" required>
                                 <div id="tambah2" ></div>
                                
-                                jumlah 
+                                Jumlah 
                                 <input type="text" class="form-control" name="jml" id="jml"  required>
                                
                                 <input type="SUBMIT" class="btn btn-primary">   

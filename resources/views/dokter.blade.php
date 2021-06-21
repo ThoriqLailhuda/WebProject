@@ -18,7 +18,7 @@
                     <td>Id</td>
                     <td>Nama</td>
                     <td>Id Poli Bagian</td>
-                    <td>Nomer Telepon</td>
+                    <td>Nomor Telepon</td>
                     <td>Harga</td>
                     <td>Created by</td>
                     <td>Created at</td>

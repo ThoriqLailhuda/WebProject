@@ -8,7 +8,7 @@
                                 {{csrf_field()}}
                                 Id
                                 <input type="text" class="form-control" name="id" value="{{$bhp->id}}" required>
-                                Id Bhp
+                                Id BHP
                                 <input type="text" class="form-control" name="id_bhp" value="{{$bhp->id_bhp}}" required>
                                 Harga
                                 <input type="text" class="form-control" name="harga" value="{{$bhp->harga}}" required>

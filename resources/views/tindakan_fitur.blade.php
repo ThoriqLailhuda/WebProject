@@ -3,11 +3,11 @@
 @section('content')
 form action="{{url('simpan_kunjungan')}}" method="post" required>
                                 {{csrf_field()}}
-                                periksa poli
+                                Periksa Poli
                                 <input type="text" class="form-control" name="id_reservasi" id="id_periksa_poli" required>
-                                nama pasien
+                                Nama Pasien
                                 <input type="text" class="form-control" name="id_pasien" id="id_pasien" required>
-                                id Penyakit 
+                                Id Penyakit 
                                 <input type="text" class="form-control" id="id_penyakit"  onchange="penyakitkunjungan()" required>
                                 <input type="hidden" id="penyakit" name="id_penyakit">
                                    <div id="hasil"> </div>
@@ -17,15 +17,15 @@ form action="{{url('simpan_kunjungan')}}" method="post" required>
                                 <input type="number" class="form-control" name="denyut_nadi" required>
                                 Usia Bulan 
                                 <input type="text" class="form-control" name="usia_bulan" required>
-                                Usia hari 
+                                Usia Hari 
                                 <input type="text" class="form-control" name="usia hari" required>
-                                Create by 
+                                Created by 
                                 <input type="text" class="form-control" name="created_by" required>
-                                Create add
+                                Created at
                                 <input type="text" class="form-control" name="created_at" >
                                 Edited by
                                 <input type="text" class="form-control" name="edited_by" required>
-                                Edited Add
+                                Edited at
                                 <input type="text" class="form-control" name="edited_at" >
 
                                 <br>
