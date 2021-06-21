@@ -1,5 +1,4 @@
 
-
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -24,16 +23,23 @@
         * {
             font-family: 'Poppins';
         }
-        .xyz{
-            
+
+        .abc{
             text-align: center;
-        }
-        img{
-            width: 45%;
+            background-color: white;
             border-radius: 10px;
+            padding: 30px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
         }
         body{
-        
+            background: url("https://www.juniordoctors.eu/themes/custom/ejd/images/ejd-home-header.jpg") no-repeat bottom center fixed; 
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
         }
     </style>
 </head>
@@ -111,12 +117,12 @@
         </nav>
 
         <main class="py-0">
-        <div class="xyz">
-            <br><br>
-            <h3>Klinik Amanda</h3>
-            <h4>Keluarga Besar RSPI Jakarta Selatan</h4><br>
-            <img src="https://korindonews.com/wp-content/uploads/2018/05/klinik-terbaik-papua-bpjs-04.jpg"></img><br><br><br>
-            <p>Klinik ini didirikan pada tahun 2018 dibawah naungan Rumah Sakit Pondok Indah Jakarta Selatan, yang juga merupakan keluarga besar<br> dari 45 klinik yang tersebar di seluruh Indonesia. Klinik Amanda memiliki poli lengkap layaknya rumah sakit pada umumnya,<br>mulai dari poli umum, poli mata, poli gigi, dan lain-lain.</p>
+        <div class="abc">
+            <h2>Contact Us<h2>
+            <h5>No Telp (0281) 567152<h5>
+            <h5>Email klinikamanda@rspi.com<h5>
+            <h5>Whatsapp 087362817638<h5>
+            <h5>Line @klinikamandarspi<h5>
         </div>
         </main>
     </div>

@@ -33,12 +33,11 @@
             margin: 0px;
         } */
         body{
-            background: url("https://i.ibb.co/jzCcKGc/klinik-4.png") no-repeat bottom center fixed; 
+            background: url("https://i.ibb.co/cbWSqVT/klinik-5.png") no-repeat bottom center fixed; 
             -webkit-background-size: cover;
             -moz-background-size: cover;
             -o-background-size: cover;
             background-size: cover;
-            
         }
     </style>
 </head>
@@ -74,6 +73,11 @@
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                             @endif
+                            <!-- @if (Route::has('contact'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('contact') }}">{{ __('Contact Us') }}</a>
+                                </li>
+                            @endif     -->
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -95,6 +99,12 @@
                                 </div>
                             </li>
                         @endguest
+                        <li class="nav-item">
+                            <a href="{{url('/contactus')}}" class="nav-link">{{ __('Contact Us') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{url('/about')}}" class="nav-link">{{ __('About') }}</a>
+                        </li>
                     </ul>
                 </div>
             </div>
