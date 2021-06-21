@@ -28,9 +28,13 @@
       </tr>
     </thead>
     <tbody>
-        <?php $nomer=1; foreach($reservasi as $value){ 
+        <?php $nomer=1; $user = Auth::user(); foreach($reservasi as $value){;
           
-            if ($value->id_penyakit > 0)  {
+          $to = \Carbon\Carbon::createFromFormat('Y-m-d', date('Y-m-d'));
+          $from = \Carbon\Carbon::createFromFormat('Y-m-d', $value->tgl_lahir);
+          $usia_bulan = $to->diffInMonths($from);
+          $usia_hari = $to->diffInDays($from);
+            if (($user->hasRole('admin') && $value->id_kunjungan == null) || $user->hasRole('user'))  {
         ?>
             <tr>
             <td style="text-align:center">{{$nomer}}</td>
@@ -38,10 +42,9 @@
             <td style="text-align:center">{{$value->tanggal_rencana_datang}}</td>
             <td style="text-align:center">{{$value->int_telp}}</td>
             <?php 
-              $user = Auth::user();
               if($user->hasRole('admin')){
                 if($value-> id_poli_bagian != ''){
-                  $parse = $value->id.',"'.$value->nama.'","'.$value->tanggal_rencana_datang.'",'.$value->int_telp.','.$value->id_pasien;
+                  $parse = $value->id.',"'.$value->nama.'","'.$value->tanggal_rencana_datang.'",'.$value->int_telp.','.$value->id_pasien.','.$usia_bulan.','.$usia_hari;
                   echo " <td><button class='btn btn-success' onclick = 'masukan_kunjungan(".$parse.")'>Masukan Kunjungan  </button> </td>  ";
                 }
                 else {
@@ -52,7 +55,7 @@
             </tr>
         <?php $nomer++;} } ?>
     </tbody>
-  </table>
+  </table>  
 </div>
 <div id="myModal" class="modal fade" role="dialog">
   <div class="modal-dialog">
@@ -126,9 +129,14 @@ function Lengkapi_data(id , nama ,tanggalpemesanan , nomerhp  ){
   $('#myModal').modal('show');
 }
 
-function masukan_kunjungan(id , nama ,tanggalpemesanan , nomerhp , id_pasien ){
+function masukan_kunjungan(id , nama ,tanggalpemesanan , nomerhp , id_pasien, usia_bulan , usia_hari ){
   document.getElementById("id_reservasi").value = id ;
-  document.getElementById("id_pasien").value = id ;
+  document.getElementById("id_pasien").value = id_pasien ;
+  document.getElementById("nama_pasien").value = nama ;
+  document.getElementById("usia_bulan").value = usia_bulan ;
+  document.getElementById("usia_hari").value = usia_hari ;
+  
+  
   $('#MyModal').modal('show');
 }
 

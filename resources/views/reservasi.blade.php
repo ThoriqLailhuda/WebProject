@@ -26,24 +26,13 @@
                 <form action="{{url('simpan_reservasi')}}" method="post" required>
                 {{csrf_field()}}
                 Nama
-                    <input type="text" class="form-control" required>
-                    <input type="hidden" class="form-control" name="id_pasien" required><br>
+                    <input type="text" class="form-control" required value="{{$reservasi[0]->nama}}">
+                    <input type="hidden" class="form-control" name="id_pasien" value="{{$reservasi[0]->id}}" required><br>
                 Tanggal Reservasi
                     <input type="date" class="form-control" name="tanggal_rencana_datang"required><br>
                
                 No HP
                     <input type="number" class="form-control" name="int_telp"required>
-
-                <!-- POLI Bagian
-                    <input type="number" class="form-control" name="id_poli_bagian"required>
-                Dokter
-                    <input type="text" class="form-control" name="id_dokter"required>
-                Status Pasien
-                    <input type="text" class="form-control" name="Status_pasien"required>
-                Creat By
-                    <input type="text" class="form-control" name="created_by"required>
-                edited by
-                    <input type="text" class="form-control" name="edited_by"required> -->
                 <br>
                 <input type="SUBMIT" class="btn btn-primary">
                 
