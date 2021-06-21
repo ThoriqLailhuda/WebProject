@@ -23,8 +23,22 @@
             font-family: 'Poppins';
         }
 
-        #hospital {
-            border-radius: 80px 0 80px 0;
+        /* #hospital {
+            position; absolute;
+            top: 0px;
+            bottom: 0px;
+            right: 0px;
+            left: 0px:
+            z-index: -1;
+            margin: 0px;
+        } */
+        body{
+            background: url("https://i.ibb.co/jzCcKGc/klinik-4.png") no-repeat bottom center fixed; 
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            
         }
     </style>
 </head>
@@ -33,7 +47,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ __('Klinik Amanda Jakarta Selatan') }}
+                    {{ __('Klinik Amanda') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -86,7 +100,7 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="py-0">
             @yield('content')
         </main>
     </div>
