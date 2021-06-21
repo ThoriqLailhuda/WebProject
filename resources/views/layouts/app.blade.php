@@ -33,7 +33,7 @@
             margin: 0px;
         } */
         body{
-            background: url("https://i.ibb.co/jzCcKGc/klinik-4.png") no-repeat bottom center fixed; 
+            background: url("https://i.ibb.co/cbWSqVT/klinik-5.png") no-repeat bottom center fixed; 
             -webkit-background-size: cover;
             -moz-background-size: cover;
             -o-background-size: cover;
