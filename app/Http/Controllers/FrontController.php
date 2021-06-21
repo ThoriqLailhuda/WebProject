@@ -127,23 +127,26 @@ class FrontController extends Controller
 
     public function antrian()
     {
-        $data["reservasi"] = DB::table('pasien')->select("*")->get();
+        //$data["reservasi"] = DB::table('pasien')->select("*")->get();
         $data["reservasi_polibagian"] = DB::table('ref_poli_bagian')->select("*")->get();
         $data["reservasi_dokter"] = DB::table('dokter')->select("*")->get();
         $data["penyakit"] = DB::table('ref_penyakit_icd')->select("*")->get();
         $user = Auth::user(); 
         if ($user->hasRole('admin')) {
-            $data["reservasi"] = DB::table('reservasi')->join('pasien', 'reservasi.id_pasien','pasien.id')
+            $data["reservasi"] = DB::table('reservasi')
+            ->join('pasien', 'reservasi.id_pasien','pasien.id')
             ->leftJoin('kunjungan', 'kunjungan.id_reservasi','reservasi.id')
-            ->select("reservasi.*","pasien.nama","kunjungan.id_penyakit")
+            ->select("reservasi.*","pasien.nama","kunjungan.id_penyakit","kunjungan.id as id_kunjungan" ,"pasien.tgl_lahir")
             ->get();
         }
         else{
-            $data["reservasi"] = DB::table('reservasi')->join('pasien', 'reservasi.id_pasien', 'pasien.id')
+            $data["reservasi"] = DB::table('reservasi')
+            ->join('pasien', 'reservasi.id_pasien', 'pasien.id')
             ->leftJoin('kunjungan', 'kunjungan.id_reservasi','reservasi.id')
-            ->select("reservasi.*","pasien.nama","kunjungan.id_penyakit")
+            ->select("reservasi.*","pasien.nama","kunjungan.id_penyakit","kunjungan.id as id_kunjungan" ,"pasien.tgl_lahir")
             ->get(); 
         }
+        
         return view('antrian', $data);
     }
         public function reservasiadmin ()
@@ -161,7 +164,8 @@ class FrontController extends Controller
             ->join('ref_penyakit_icd', 'kunjungan.id_penyakit','ref_penyakit_icd.id')
             ->join('ref_poli_bagian', 'reservasi.id_poli_bagian','ref_poli_bagian.id')
             ->join('dokter', 'reservasi.id_dokter','dokter.id')
-            ->where('kunjungan.status','<>',1)
+            ->whereNull('kunjungan.status')
+            ->orWhere('kunjungan.status',0)
             ->select('kunjungan.*','pasien.*','reservasi.*','ref_penyakit_icd.*','kunjungan.id as id_kunjungan',
             'ref_poli_bagian.nama as nama_penyakitpoli','ref_poli_bagian.id as id_poli','ref_poli_bagian.harga_pendaftaran',
             'dokter.nama as nama_dokter', 'dokter.id as id_dokter','ref_penyakit_icd.id as id_penyakit')
@@ -255,7 +259,7 @@ class FrontController extends Controller
     public function simpan_kunjungan(Request $post)
     {
         $data = $post->except('_token');
-        //dd($data);
+
         $q= DB::table('kunjungan')->insert($data);
         if ($q) {
             return redirect('antrian');

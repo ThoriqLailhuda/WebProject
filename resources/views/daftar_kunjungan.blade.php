@@ -32,7 +32,7 @@
       </tr>
     </thead>
     <tbody>
-        <?php $nomer=1; foreach($kunjungan as $value) {?>
+        <?php $nomer=1; foreach($kunjungan as $value)  {?>
             <tr>
             <td style="text-align:center">{{$nomer}}</td>
             <td style="text-align:center">{{$value->nama}}</td>
